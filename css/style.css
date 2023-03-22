@@ -1,14 +1,32 @@
-div.poc{
-    width: 1000px;
-    height: 1000px;
+body{
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+html, body, #poc, #poc section{
+    width: 100%;
+    height: 100%;
+}
+#poc section{
     margin-bottom: 100px;
 }
+#poc section div{
+    width: 1000px;
+    height: 1000px;
+}
 
-.distortion{
+#poc .liquidEffect-wapper{
 }
 
 
-.zoomdezoom{
-    background-image: url("../media/img/visage_ville.jpg");
-    background-size: cover;
+#poc .zoomdezoom-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#poc .zoomdezoom-wrapper img{
+    transform-origin: 70% 35%;
 }
