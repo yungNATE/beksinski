@@ -1,4 +1,14 @@
-.distortion{
+div.poc{
     width: 1000px;
     height: 1000px;
+    margin-bottom: 100px;
+}
+
+.distortion{
+}
+
+
+.zoomdezoom{
+    background-image: url("../media/img/visage_ville.jpg");
+    background-size: cover;
 }

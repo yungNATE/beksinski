@@ -20,7 +20,9 @@
         <script src="js/libs/hover-effect/dist/hover-effect.umd.js"></script>
         <script src="js/main.js"></script>
 
-        <div class="distortion"></div>
+        <div class="poc distortion"></div>
+
+        <div class="poc zoomdezoom"></div>
 
     </section>
     </div>
