@@ -11,24 +11,20 @@
     <title>Beksiński</title>
 </head>
 <body id="index">
-    <div id="canva">
-
-    </div>
-
-    <div id="poc">
-        <!-- <section id="liquidEffect">
-            <script src="js/libs/three.js/three.min.js"></script>
-            <script src="js/libs/gsap/gsap.min.js"></script>
-            <script src="js/libs/hover-effect/dist/hover-effect.umd.js"></script>
-
-            <div class="liquidEffect-wapper"></div>
-        </section> -->
-
-        <section id="zoomdezoom">
-            <div class="zoomdezoom-wrapper">
-                <img src="media/img/visage_ville.jpg" alt="">
-            </div>
-        </section>
+    <div id="nav-bar">
+        <input id="nav-toggle" type="checkbox"/>
+        <div id="nav-header"><a id="nav-title" href="https://codepen.io" target="_blank">Beksiński</a>
+            <label for="nav-toggle"><span id="nav-toggle-burger"></span></label>
+            <hr/>
+        </div>
+        <div id="nav-content">
+            <a href="http://localhost/beksinski/poc/liquideEffect.php" class="nav-button"><i class="fas fa-palette"></i><span>Transition Liquide</span></a>
+            <a href="http://localhost/beksinski/poc/liquideEffect2.php" class="nav-button"><i class="fas fa-palette"></i><span>Transition Liquide 2</span></a>
+            <a href="http://localhost/beksinski/poc/zoomdezoom.php" class="nav-button"><i class="fas fa-palette"></i><span>Effet de (de)zoom</span></a>
+            <hr/>
+            <div id="nav-content-highlight"></div>
+        </div>
+        <input id="nav-footer-toggle" type="checkbox"/>
     </div>
 </body>
 </html>
