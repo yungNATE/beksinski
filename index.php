@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/main.js"></script>
+    
+    <title>Beksiński</title>
+</head>
+<body id="index">
+    <div id="nav-bar">
+        <input id="nav-toggle" type="checkbox"/>
+        <div id="nav-header"><a id="nav-title" href="https://codepen.io" target="_blank">Beksiński</a>
+            <label for="nav-toggle"><span id="nav-toggle-burger"></span></label>
+            <hr/>
+        </div>
+        <div id="nav-content">
+            <a href="http://localhost/beksinski/poc/liquideEffect.php" class="nav-button"><i class="fas fa-palette"></i><span>Transition Liquide</span></a>
+            <a href="http://localhost/beksinski/poc/liquideEffect2.php" class="nav-button"><i class="fas fa-palette"></i><span>Transition Liquide 2</span></a>
+            <a href="http://localhost/beksinski/poc/zoomdezoom.php" class="nav-button"><i class="fas fa-palette"></i><span>Effet de (de)zoom</span></a>
+            <hr/>
+            <div id="nav-content-highlight"></div>
+        </div>
+        <input id="nav-footer-toggle" type="checkbox"/>
+    </div>
+</body>
+</html>
