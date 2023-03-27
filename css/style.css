@@ -68,6 +68,7 @@ html, body, #poc, #poc section{
   right: 5px;
   top: 5px;
   font-weight: bold;
+  z-index: 99;
 }
 
 .button-30:focus {
