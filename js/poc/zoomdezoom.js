@@ -1,78 +1,40 @@
-zoomLevel = 1;
+//* POC : Zoom / Dézoom
+var zoomLevel = 1;
+const ZOOMLVLMIN = 1;
+const ZOOMLVLMAX = 95; // valeur arbitraire qui marche
+
+const ZOOMACCLBASE = 1.1;
+var zoomAcceleration = ZOOMACCLBASE
+
+var zoomedImg;
+
+window.isZooming = true; // true = zoom, false = dézoom
+
 window.onload = function() {
+    zoomedImg = document.querySelector('#zoomdezoom > div > img');
 
-    //* POC : Zoom / Dézoom
-    var zoomDezoom = document.querySelector('#zoomdezoom > div > img');
-    const ZOOMACCLBASE = 1.1;
-    var zoomAcceleration = ZOOMACCLBASE
-    const ZOOMLVLMIN = 1;
-    const ZOOMLVLMAX = 95; // valeur arbitraire qui marche
+    addEventListener('wheel', zoom);
 
+}
 
-    addEventListener('wheel', zoomGen);
+function zoom(){
+    hasReachedBoundaries = false;
+
+    isZooming ? 
+        zoomLevel *= zoomAcceleration : 
+        zoomLevel /= zoomAcceleration
+
+    if(zoomLevel <= ZOOMLVLMIN || zoomLevel >= ZOOMLVLMAX) hasReachedBoundaries = true;
     
-    function zoom() {       
-        zoomLevel = clamp(zoomLevel *= zoomAcceleration ,ZOOMLVLMIN,ZOOMLVLMAX);
-        zoomDezoom.style.transform = `scale(${zoomLevel})`;
-        
-        if(zoomLevel >= ZOOMLVLMAX) { 
-            console.log("max atteint : " + zoomLevel);
-            zoomAcceleration = ZOOMACCLBASE
-            
-            this.removeEventListener('wheel', zoom)
-            addEventListener('wheel', dezoom);
-            return;
-        }
-
-
+    zoomLevel = clamp(zoomLevel, ZOOMLVLMIN, ZOOMLVLMAX) // cap le zoom level entre ZOOMLVLMIN et ZOOMLVLMAX
+    zoomedImg.style.transform = `scale(${zoomLevel})`
+    
+    if(hasReachedBoundaries){
+        zoomAcceleration = ZOOMACCLBASE
+        window.isZooming = !isZooming
+        return;
     }
 
-    function dezoom() {
-        zoomLevel = clamp(zoomLevel /= zoomAcceleration ,ZOOMLVLMIN,ZOOMLVLMAX);
-        zoomDezoom.style.transform = `scale(${zoomLevel})`;
-        
-        if(zoomLevel <= ZOOMLVLMIN) { 
-            console.log("min atteint : " + zoomLevel);
-            zoomAcceleration = ZOOMACCLBASE
-            
-            this.removeEventListener('wheel', dezoom)
-            addEventListener('wheel', zoom);
-            return;
-        }
-    }
-
-    function zoomGen(){
-        if (! typeof window.isZooming !== 'undefined') { // initialise isZooming
-            window.isZooming = true;
-        }
-
-        hasReachedBoundaries = false;
-
-        if(isZooming){
-            zoomLevel = zoomLevel *= zoomAcceleration
-            
-            if(zoomLevel >= ZOOMLVLMAX) hasReachedBoundaries = true;
-        }
-        else{
-            console.log("titi");
-            zoomLevel = zoomLevel /= zoomAcceleration
-            
-            if(zoomLevel <= ZOOMLVLMIN) hasReachedBoundaries = true;
-        }
-
-        zoomLevel = clamp(zoomLevel, ZOOMLVLMIN, ZOOMLVLMAX) // cap le zoom level entre ZOOMLVLMIN et ZOOMLVLMAX
-        zoomDezoom.style.transform = `scale(${zoomLevel})`
-        
-        if(hasReachedBoundaries){
-            zoomAcceleration = ZOOMACCLBASE
-
-            this.removeEventListener('wheel', zoomGen)
-            window.isZooming = !isZooming
-            addEventListener('wheel', isZooming ? dezoom : zoom);
-            return;
-        }
-
-    }
 }
 
 
