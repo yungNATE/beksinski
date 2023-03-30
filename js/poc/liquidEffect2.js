@@ -1,3 +1,5 @@
+// TODO : Refactor ce code de merde
+// TODO : Event listener sur la position de la sourie pour la transition
 
 window.onload = function() {
 	
