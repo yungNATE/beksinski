@@ -32,6 +32,16 @@ html, body, #poc, #poc section{
 }
 
 
+#poc + canvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.dg.a {
+  margin-right: 165px !important;
+}
+
 /** CSS CACA CHOPÉ SUR INTERNET : ne pas regarder, ça marche, on y touche pas.  */
 
 /* HOME BUTTON */
