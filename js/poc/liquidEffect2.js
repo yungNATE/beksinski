@@ -1,6 +1,10 @@
 // TODO : Refactor ce code de merde
 
 var mat;
+var scene;
+var camera;
+var renderer;
+var frustumSize;
 
 window.onload = function() {
 	
@@ -9,10 +13,23 @@ window.onload = function() {
 		loadCanvas();
 
 		addEventListener("mousemove", function (e) { // TODO : si valeur > 1 et < 0 sont retenues, changer le calcul ici
-			mat.uniforms.dispFactor.value = e.clientX / window.innerWidth;
+			screenSize = window.innerWidth
+			screenCenter = screenSize / 2
+			mousePos = e.clientX
+			mousePosCentered = mousePos - screenCenter
+			mousePosCanvas = mousePosCentered + camera.right
+			canvasSize = camera.right * 2
+
+			if( e.clientX > screenCenter + camera.left &&
+				e.clientX < screenCenter + camera.right 
+			){
+				currentCanvasPos = mousePosCanvas / canvasSize;
+
+				mat.uniforms.dispFactor.value = Math.round(currentCanvasPos * 100) / 100				;
+				// console.log(mat.uniforms.dispFactor.value);
+			}
 		});
 
-		// mat.uniforms.dispFactor.value = 2 // controle le niveau de transition
 	});
 	script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js");
 
@@ -21,10 +38,10 @@ window.onload = function() {
 
 function loadCanvas () {
 	window.addEventListener("resize", onWindowResize);
-	var frustumSize = 600;
+	frustumSize = 600;
 	var aspect = window.innerWidth / window.innerHeight;
 	var clock = new THREE.Clock(true);
-	var scene = new THREE.Scene();
+	scene = new THREE.Scene();
 	camera = new THREE.OrthographicCamera(
 		(frustumSize * aspect) / -2,
 		(frustumSize * aspect) / 2,
@@ -35,8 +52,9 @@ function loadCanvas () {
 	);
 	camera.lookAt(scene.position);
 	camera.position.z = 1;
-	var renderer = new THREE.WebGLRenderer( { alpha: true } );
+	renderer = new THREE.WebGLRenderer( { alpha: true } );
 	renderer.setPixelRatio = 1;
+	renderer.domElement.id = 'liquidEffect2canvas';
 	renderer.setClearColor( 0x000000, 0 );
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	document.body.appendChild(renderer.domElement);
