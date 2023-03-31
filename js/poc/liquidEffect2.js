@@ -5,6 +5,7 @@ var scene;
 var camera;
 var renderer;
 var frustumSize;
+const SIZE = 1000;
 
 window.onload = function() {
 	
@@ -12,7 +13,14 @@ window.onload = function() {
 	script.addEventListener('load', function() {
 		loadCanvas();
 
-		addEventListener("mousemove", function (e) { // TODO : si valeur > 1 et < 0 sont retenues, changer le calcul ici
+		document.querySelector('#liquidEffect2canvas').addEventListener("mousemove", function (e) { 
+			currentCanvasPos = e.clientX / SIZE;
+
+
+			mat.uniforms.dispFactor.value = Math.round(currentCanvasPos * 100) / 100
+		});
+
+		/* addEventListener("mousemove", function (e) { // TODO : si valeur > 1 et < 0 sont retenues, changer le calcul ici
 			screenSize = window.innerWidth
 			screenCenter = screenSize / 2
 			mousePos = e.clientX
@@ -20,15 +28,24 @@ window.onload = function() {
 			mousePosCanvas = mousePosCentered + camera.right
 			canvasSize = camera.right * 2
 
+			
+			// j'aimerais que cette condition me donne les coord.
+			// exactes de l'image rendue.
+			// --
+			// En gros if(hoverImage()){ mat.uniforms.dispFactor.value = % de la taille totale de l'image rendue en fct de la pos de mon pointeur
 			if( e.clientX > screenCenter + camera.left &&
 				e.clientX < screenCenter + camera.right 
 			){
-				currentCanvasPos = mousePosCanvas / canvasSize;
+				
+				console.log(camera.left	);
+			
+				// currentCanvasPos = mousePosCanvas / canvasSize;
 
-				mat.uniforms.dispFactor.value = Math.round(currentCanvasPos * 100) / 100				;
+
+				// mat.uniforms.dispFactor.value = Math.round(currentCanvasPos * 100) / 100
 				// console.log(mat.uniforms.dispFactor.value);
 			}
-		});
+		}); */
 
 	});
 	script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js");
@@ -37,9 +54,10 @@ window.onload = function() {
 }
 
 function loadCanvas () {
-	window.addEventListener("resize", onWindowResize);
+	// window.addEventListener("resize", onWindowResize);
 	frustumSize = 600;
 	var aspect = window.innerWidth / window.innerHeight;
+	var aspect = SIZE / SIZE;
 	var clock = new THREE.Clock(true);
 	scene = new THREE.Scene();
 	camera = new THREE.OrthographicCamera(
