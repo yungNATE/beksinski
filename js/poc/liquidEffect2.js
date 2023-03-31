@@ -1,17 +1,25 @@
 // TODO : Refactor ce code de merde
-// TODO : Event listener sur la position de la sourie pour la transition
+
+var mat;
 
 window.onload = function() {
 	
 	script = document.querySelector('#script1');
 	script.addEventListener('load', function() {
-		toto();
+		loadCanvas();
+
+		addEventListener("mousemove", function (e) { // TODO : si valeur > 1 et < 0 sont retenues, changer le calcul ici
+			mat.uniforms.dispFactor.value = e.clientX / window.innerWidth;
+		});
+
+		// mat.uniforms.dispFactor.value = 2 // controle le niveau de transition
 	});
 	script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js");
 
+
 }
 
-function toto () {
+function loadCanvas () {
 	window.addEventListener("resize", onWindowResize);
 	var frustumSize = 600;
 	var aspect = window.innerWidth / window.innerHeight;
@@ -65,7 +73,7 @@ function toto () {
 	// var disp = loader.load("https://robindelaporte.fr/codepen/loader/fluid.jpg");
 	var disp = loader.load("../js/libs/hover-effect/images/heightMap.png");
 	disp.wrapS = disp.wrapT = THREE.RepeatWrapping;
-	var mat = new THREE.ShaderMaterial({
+	mat = new THREE.ShaderMaterial({
 		uniforms: {
 			time: { type: "f", value: 1.0 },
 			angle1: { type: "f", value: Math.PI / 4 },
@@ -85,7 +93,7 @@ function toto () {
 		transparent: true,
 		opacity: 1.0
 	});
-	var geometry = new THREE.PlaneBufferGeometry(600, 600, 1);
+	geometry = new THREE.PlaneBufferGeometry(600, 600, 1);
 	var object = new THREE.Mesh(geometry, mat);
 	scene.add(object);
 	var animate = function () {
@@ -95,6 +103,9 @@ function toto () {
 		mat.uniforms.time.value += d;
 	};
 	animate(); 
-	this.GUI = new dat.GUI(); this.GUI.add(mat.uniforms.dispFactor, "value", 0, 1, 0.01).name("transition");
+	// this.GUI = new dat.GUI(); this.GUI.add(mat.uniforms.dispFactor, "value", 0, 1, 0.01).name("transition");
+	this.GUI = new dat.GUI(); this.GUI.add(mat.uniforms.dispFactor, "value", -1, 2, 0.01).name("transition"); // effet vachement cool !!
+
+	
 }
 
