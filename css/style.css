@@ -28,7 +28,7 @@ html, body, #poc, #poc section{
 }
 
 #poc .zoomdezoom-wrapper img{
-    transform-origin: 70% 35%;
+    /* transform-origin: 70% 35%; */
 }
 
 
