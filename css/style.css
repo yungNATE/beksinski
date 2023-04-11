@@ -56,18 +56,39 @@ canvas{
 
 
 /* Personalisation du curseur */
+.no-cursor{
+  cursor: none !important;
+}
 .cursor {
   width: 20px;
-  height: 20px;
-  border: 2px solid white;
+  aspect-ratio: 1/1;
+  outline: 2px solid white;
+  outline-offset: -1px;
+
   border-radius: 50%;
   position: absolute;
-  /* transition-duration: 200ms; */
-  transition-duration: 75ms;
-  transition-timing-function: ease-out;
+
+  transition: 
+    top ease-out 75ms,
+    left ease-out 75ms,
+    background-color ease-out 200ms,
+    outline-width ease-out 200ms,
+    width ease-out 200ms;
+
   animation: cursorAnim .5s infinite alternate;
-  pointer-events: none;
+  transform-origin: center;
+
+  pointer-events: none !important;
   z-index: 99;
+}
+
+.cursor.hover{
+  width: 10px;
+  background-color: white;
+  /* animation: beat .5s infinite alternate; */
+}
+@keyframes beat{
+	to { transform: scale(1.4); }
 }
 
 .cursor::after {
@@ -115,7 +136,8 @@ canvas{
 
 .expand {
   animation: cursorAnim3 .5s forwards;
-  border: 1px solid #7A1500;
+  outline: 1px solid #7A1500;
+  background-color: transparent;
 }
 
 
