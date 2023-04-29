@@ -19,12 +19,12 @@ window.onload = function() {
         clickable.classList.add('no-cursor');
 
         clickable.addEventListener('mouseover', () => {
-            console.log('hover');
+            // console.log('hover');
             cursor.classList.add("hover")
         })
         
         clickable.addEventListener('mouseleave', () => {
-            console.log('unhover');
+            // console.log('unhover');
             cursor.classList.remove("hover")
         })
     })

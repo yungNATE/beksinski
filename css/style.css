@@ -79,7 +79,7 @@ canvas{
   transform-origin: center;
 
   pointer-events: none !important;
-  z-index: 99;
+  z-index: 999;
 }
 
 .cursor.hover{
