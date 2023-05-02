@@ -55,96 +55,6 @@ canvas{
 
 
 
-/* Personalisation du curseur */
-.no-cursor{
-  cursor: none !important;
-}
-.cursor {
-  width: 20px;
-  aspect-ratio: 1/1;
-  outline: 2px solid white;
-  outline-offset: -1px;
-
-  border-radius: 50%;
-  position: absolute;
-
-  transition: 
-    top ease-out 75ms,
-    left ease-out 75ms,
-    background-color ease-out 200ms,
-    outline-width ease-out 200ms,
-    width ease-out 200ms;
-
-  animation: cursorAnim .5s infinite alternate;
-  transform-origin: center;
-
-  pointer-events: none !important;
-  z-index: 999;
-}
-
-.cursor.hover{
-  width: 10px;
-  background-color: white;
-  /* animation: beat .5s infinite alternate; */
-}
-@keyframes beat{
-	to { transform: scale(1.4); }
-}
-
-.cursor::after {
-  content: "";
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  border-radius: 50%;
-  opacity: .5;
-  top: -8px;
-  left: -8px;
-  animation: cursorAnim2 .5s infinite alternate;
-}
-
-/*@keyframes cursorAnim {
-  from {
-      transform: scale(1);
-  }
-  to {
-      transform: scale(.7);
-  }
-}
-
-@keyframes cursorAnim2 {
-  from {
-      transform: scale(1);
-  }
-  to {
-      transform: scale(.4);
-  }
-}*/
-
-@keyframes cursorAnim3 {
-  0% {
-      transform: scale(1);
-  }
-  50% {
-      transform: scale(2.5);
-  }
-  100% {
-      transform: scale(1);
-      opacity: 0;
-  }
-}
-
-.expand {
-  animation: cursorAnim3 .5s forwards;
-  outline: 1px solid #7A1500;
-  background-color: transparent;
-}
-
-
-
-
-
-
 
 /** CSS CACA CHOPÉ SUR INTERNET : ne pas regarder, ça marche, on y touche pas.  */
 
@@ -236,7 +146,7 @@ canvas{
   }
   #nav-toggle:checked ~ #nav-header #nav-toggle-burger:before, #nav-toggle:checked ~ #nav-header #nav-toggle-burger::after {
     width: 16px;
-    background: var(--navbar-light-secondary);
+    background: var(--navbar-light-primary);
     transform: translate(0, 0) rotate(0deg);
   }
   #nav-toggle:checked ~ #nav-content .nav-button span {
