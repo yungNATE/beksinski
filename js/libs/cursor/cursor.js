@@ -61,4 +61,6 @@ let cursorMain = () => {
         })
     })
 }
-window.addEventListener('load', cursorMain);
+document.readyState === 'complete' ? 
+    cursorMain() :
+    console.log("Merci de charger la libraire au après le chargement du DOM");

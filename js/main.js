@@ -1,6 +1,9 @@
-// load homemade cursor library
-var script = document.createElement('script');
-script.src = "libs/cursor/cursor.js";
 
-
+let mainJS = () => {
+    // load homemade cursor library
+    let  script = document.createElement('script');
+    document.head.appendChild(script);
+    script.src = "js/libs/cursor/cursor.js";
+}
+window.addEventListener('load', mainJS);
 // TODO ^^^
