@@ -1,9 +1,9 @@
-let cursorMain = () => {
+const cursorMain = () => {
     // ajout du CSS
     document.querySelector('head')
     .insertAdjacentHTML(
         'beforeend',
-        '<link rel="stylesheet" href="js/cursor/cursor.css" />'
+        '<link rel="stylesheet" href="js/libs/cursor/cursor.css" />'
         );
 
     // ajout du HTML
@@ -22,7 +22,9 @@ let cursorMain = () => {
         document.removeEventListener('mousemove', removeHiddenOnStartupClass);
     }
     document.addEventListener('mousemove', e => {
-        cursor.setAttribute("style", "top: "+(e.pageY)+"px; left: "+(e.pageX)+"px;")
+        let offsetX = cursor.offsetWidth / 2;
+        let offsetY = cursor.offsetHeight / 2;
+        cursor.setAttribute("style", "top: "+(e.pageY - offsetX)+"px; left: "+(e.pageX - offsetY)+"px;")
 
         // Detect when window left // NE MARCHE PAS, mouseout/mouseleave déjà testé
         // if(    e.pageX <= 0 
@@ -60,7 +62,12 @@ let cursorMain = () => {
             cursor.classList.remove("hover")
         })
     })
+
+    document.isCursorLibAlreadyLoaded = true;
 }
-document.readyState === 'complete' ? 
-    cursorMain() :
-    console.log("Merci de charger la libraire au après le chargement du DOM");
+
+if(! document.isCursorLibAlreadyLoaded) {
+    document.readyState === 'complete' ? 
+        cursorMain() :
+        console.log("Merci de charger la libraire au après le chargement du DOM");
+}

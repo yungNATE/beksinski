@@ -1,4 +1,4 @@
-let liquidEffect = function() {
+const liquidEffect = () => {
     console.log("toto");
     //* POC : Distortion
     let isTriggeredByHover = true; // sinon trigger par clic
