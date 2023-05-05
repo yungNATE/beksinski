@@ -1,6 +1,9 @@
+body,
 .no-cursor{
-    cursor: none !important;
+    cursor: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle fill='white' cx='50' cy='50' r='50'/%3E%3C/svg%3E%0A") 2 2, none !important;
+
 }
+
 .cursor {
     width: 20px;
     aspect-ratio: 1/1;
@@ -11,8 +14,8 @@
     position: absolute;
 
     transition: 
-        top ease-out 75ms,
-        left ease-out 75ms,
+        top ease-out 100ms,
+        left ease-out 100ms,
         background-color ease-out 200ms,
         outline ease-out 200ms,
         transform ease-out 200ms;
@@ -24,24 +27,12 @@
     z-index: 999;
 }
 
-.cursor::after {
-  content: "";
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  border-radius: 50%;
-  opacity: .5;
-  top: -8px;
-  left: -8px;
-  animation: cursorAnim2 .5s infinite alternate;
-}
-
 .cursor.hiddenOnStartup{
     opacity: 0 !important;
 }
 
 .cursor.hover{
-    transform: scale(.5);
+    transform: scale(.4);
     background-color: white;
     /*animation: beat .5s infinite alternate;*/
 }
