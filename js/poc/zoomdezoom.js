@@ -13,12 +13,13 @@ const CITYCANVASSRC = '../media/img/visage_ville.jpg';
 
 window.isZooming = true; // true = zoom, false = dézoom
 
-window.onload = function() {
+let zoomdezoom = function() {
     // zoom / dezoom
     zoomedImg = document.querySelector('#zoomdezoom > div > img');
     zoomedImg.style.transformOrigin = '70% 35%';
     addEventListener('wheel', zoom);
 }
+window.addEventListener('load', zoomdezoom);
 
 // Fonction de zoom et de dézoom de zoomedImgx
 function zoom(){

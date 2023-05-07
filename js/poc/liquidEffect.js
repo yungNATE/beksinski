@@ -1,7 +1,7 @@
-window.onload = function() {
-
+const liquidEffect = () => {
+    console.log("toto");
     //* POC : Distortion
-    isTriggeredByHover = true; // sinon trigger par clic
+    let isTriggeredByHover = true; // sinon trigger par clic
     var distortion = document.querySelector('.liquidEffect-wrapper');
     
     
@@ -15,7 +15,7 @@ window.onload = function() {
     })
     
     if(!isTriggeredByHover){
-        toggled = false;
+        let toggled = false;
         distortion.addEventListener('click', () => { 
             toggled ?
                 hoverAnimation.previous() :
@@ -26,3 +26,4 @@ window.onload = function() {
         });
     }
 }
+window.addEventListener('load', liquidEffect);

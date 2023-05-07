@@ -7,7 +7,7 @@ var renderer;
 var frustumSize;
 const SIZE = 1000;
 
-window.onload = function() {
+let liquidEffect2 = function() {
 	
 	script = document.querySelector('#script1');
 	script.addEventListener('load', function() {
@@ -52,6 +52,7 @@ window.onload = function() {
 
 
 }
+window.addEventListener('load', liquidEffect2);
 
 function loadCanvas () {
 	// window.addEventListener("resize", onWindowResize);
