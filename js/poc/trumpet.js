@@ -20,9 +20,10 @@ function display(event) {
   
     window.addEventListener('mousemove', function(event) {
       var y = event.clientY / window.innerHeight; 
+      var vol = cos((x-0.5)*3.15);
       sound.volume(y); 
       var x = event.clientX / window.innerWidth; 
-      var stereo = (x - 0.5) * 2; 
+      var stereo = (x-0.5)*2; 
       sound.stereo(stereo); 
     });
   
