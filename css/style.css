@@ -62,11 +62,15 @@ canvas{
   border: 2px solid white;
   border-radius: 50%;
   position: absolute;
-  /* transition-duration: 200ms; */
+  /*transition: border-width 0.5s ease-in-out;*/
+  transition: transform 0.5s ease-in-out;
+  transform-origin: center;
+
+  /* transition-duration: 200ms; 
   transition-duration: 75ms;
   transition-timing-function: ease-out;
   animation: cursorAnim .5s infinite alternate;
-  pointer-events: none;
+  pointer-events: none;*/
 }
 
 .cursor::after {
@@ -112,10 +116,14 @@ canvas{
   }
 }
 
-.expand {
+.cursor.clicked {
+  border-width: 10px;
+}
+
+/*.expand {
   animation: cursorAnim3 .5s forwards;
   border: 1px solid #7A1500;
-}
+}*/
 
 
 
