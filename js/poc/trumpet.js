@@ -4,11 +4,12 @@ function display(event) {
     let X_rapport = X / window.innerWidth;
     let Y_rapport = Y / window.innerHeight;
     let result = document.getElementById("result");
-    result.innerHTML = "<b>X-coordinate: </b>" + X_rapport;
+    //result.innerHTML = "<b>X-coordinate: </b>" + X_rapport;
     let resultY = document.getElementById("resultY");
-    resultY.innerHTML = "<b>Y-coordinate: </b>" + Y_rapport;
-    let vol = cos((Y-0.5)*3.15);
-    vol.innerHTML = "<vol: </b>" + vol;
+    //resultY.innerHTML = "<b>Y-coordinate: </b>" + Y_rapport;
+    let vol = Math.cos((Y_rapport-0.5)*3.15);
+    let volY = document.getElementById("volY");
+    //volY.innerHTML = "<B>volCos: </b>" + vol;
  }
 
 /*music\trumpet-lofi-141049.mp3*/
@@ -22,7 +23,7 @@ function display(event) {
   
     window.addEventListener('mousemove', function(event) {
       var y = event.clientY / window.innerHeight; 
-      var vol = cos((y-0.5)*3.15);
+      var vol = Math.cos((y-0.5)*3.15);
       sound.volume(vol); 
       var x = event.clientX / window.innerWidth; 
       var stereo = (x-0.5)*2; 
