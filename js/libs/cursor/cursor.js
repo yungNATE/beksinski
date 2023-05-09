@@ -67,5 +67,5 @@ const cursorMain = () => {
 if(! document.isCursorLibAlreadyLoaded) {
     document.readyState === 'complete' ? 
         cursorMain() :
-        console.log("Merci de charger la libraire au après le chargement du DOM");
+        window.addEventListener('load', cursorMain);
 }
