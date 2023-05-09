@@ -35,6 +35,12 @@ html, body, #poc, #poc section{
     /* transform-origin: 70% 35%; */
 }
 
+#trumpet {
+  background-image: url("../media/img/trumpet_expended.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 canvas{
     position: fixed;
