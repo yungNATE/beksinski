@@ -1,0 +1,127 @@
+@import url("style.css");
+
+/* Adding fonts */
+@font-face {
+    font-family: "belafonte";
+    src: url("fonts/belafonte/Font/belafonte-lines.ttf");
+}
+
+@font-face {
+    font-family: "Syne";
+    src: url("fonts/Syne/static/Syne-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Chaney";
+    src: url("fonts/CHANEY-ULTRA-EXTENDED/CHANEY-ULTRA-EXTENDED/Webfont/CHANEY-UltraExtended-webfont/chaney-ultraextended-webfont.ttf");
+}
+
+@font-face {
+    font-family: "FuturaRenner";
+    src: url("fonts/FuturaRenner/fonts/FuturaRenner-Regular.otf");
+}
+
+
+html, body{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+body{
+    --bodyPaddingBlock: 100px;
+    padding-block: var(--bodyPaddingBlock);
+    height: calc(100vh - calc(var(--bodyPaddingBlock) * 2));
+
+    --bodyPaddingInline: 100px;
+    padding-inline: var(--bodyPaddingInline);
+    width: calc(99vw - calc(var(--bodyPaddingInline) * 2));
+
+    color: white;
+    font-size: 2rem;
+    padding-block: 100px;
+
+    font-family: "Syne";
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content > *:nth-child(even){
+    align-self: flex-end;
+}
+
+.content > #logo {
+    /* posi */
+}
+.content > #logo .img{
+    filter: invert(100%);
+}
+.content > #logo .alt-logo {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    z-index: -1;
+    pointer-events: none;
+    
+    color: transparent;
+    user-select: none;
+}
+
+
+.content > .btn-flip {
+    --lineheight: 60px;
+    opacity: 1;
+    outline: 0;
+    color: #fff;
+    line-height: var(--lineheight);
+    position: relative;
+    text-align: center;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.3rem;
+
+    width: fit-content;
+    align-self: center;
+}
+.content > .btn-flip:hover:after {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+}
+.content > .btn-flip:hover:before {
+    opacity: 0;
+    transform: translateY(50%) rotateX(90deg);
+}
+.content > .btn-flip:after {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    color: #000000;
+    display: block;
+    transition: 0.5s;
+    position: absolute;
+    background: #ffffff;
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+}
+.content > .btn-flip:before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: #ffffff;
+    display: block;
+    padding: 0 30px;
+    line-height: var(--lineheight);
+    transition: 0.5s;
+    position: relative;
+    background: #222020;
+    content: attr(data-front);
+    transform: translateY(0) rotateX(0);
+}
