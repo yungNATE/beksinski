@@ -5,23 +5,20 @@
     font-family: "belafonte";
     src: url("fonts/belafonte/Font/belafonte-lines.ttf");
 }
-
 @font-face {
     font-family: "Syne";
     src: url("fonts/Syne/static/Syne-Bold.ttf");
 }
-
 @font-face {
     font-family: "Chaney";
     src: url("fonts/CHANEY-ULTRA-EXTENDED/CHANEY-ULTRA-EXTENDED/Webfont/CHANEY-UltraExtended-webfont/chaney-ultraextended-webfont.ttf");
 }
-
 @font-face {
     font-family: "FuturaRenner";
     src: url("fonts/FuturaRenner/fonts/FuturaRenner-Regular.otf");
 }
 
-
+/* GENERIQUE */
 html, body{
     background-color: black;
     width: 100%;
@@ -42,50 +39,55 @@ body{
 
     font-family: "Syne";
 }
-
 .content {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-
-content > * {
-    opacity: 0;
+.content > *:nth-child(even){
+    align-self: flex-end;
 }
 
+
+/* Animation on load */
 .content > *{
-    /* animation- */
+    animation-duration: 1s;
 }
-.content > *:nth-child(){
-    animation: reveal 1s;
+.content > *:nth-child(1){
+    animation: revealLeft 1s;
 }
 .content > *:nth-child(2){
-    animation-name: revealMirror 2s;
+    animation: revealRight 3s;
 }
 .content > *:nth-child(3){
-    animation: reveal 3s;
+    animation: revealBottom 5s;
 }
 
-@keyframes reveal {
-    0%{ opacity: 0;
-        transform: translateX(50px); }
-    100%{   opacity: 1;
-            transform: translateX(0); }
-}
-@keyframes revealMirror {
+@keyframes revealLeft {
     0%{ opacity: 0;
         transform: translateX(-50px); }
     100%{   opacity: 1;
             transform: translateX(0); }
 }
-
-.content > *:nth-child(even){
-    align-self: flex-end;
+@keyframes revealRight {
+    0%{ opacity: 0;
+        transform: translateX(50px); }
+    100%{   opacity: 1;
+            transform: translateX(0); }
+}
+@keyframes revealBottom {
+    0%{ opacity: 0;
+        transform: translateY(50px); }
+    100%{   opacity: 1;
+            transform: translateX(0); }
 }
 
+
+/* LOGO SIGNATURE BEKSINSKI */
 .content > #logo {
     user-select: none;
+    pointer-events: none;
 }
 .content > #logo .img{
     filter: invert(100%);
@@ -103,7 +105,30 @@ content > * {
     user-select: none;
 }
 
+/* SPAN RAINBOW */
+#text{
+    display: flex;
+    line-height: 3rem;
+}
+.rainbow {
+    background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 6s ease-in-out infinite;
+    background-size: 400% 100%;
+    display: flex;
+}
+.explodeOnHover .letter{
+    display: block;
+    transition: transform 0.5s;
+}
+@keyframes rainbow_animation {
+    0%,100% { background-position: 0 0; }
+    50% { background-position: 100% 0; }
+}
 
+/* BOUTON DEMARRER */
 .content > .btn-flip {
     --lineheight: 60px;
     opacity: 1;
