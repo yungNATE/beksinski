@@ -1,7 +1,22 @@
-// Créer un effet de halo, avec de la texture, du grain, sur le background
-
 const introMain = () => {
 
+    
+    // Effet de halo
+    let halo = document.querySelector("#halo");
+    let haloSize = 500;
+    halo.style.maskSize = `${haloSize}px ${haloSize}px`;
+    window.addEventListener("mousemove", (e) => {
+        let mouseX = e.pageX;
+        let mouseY = e.pageY;
+
+        let x = mouseX - haloSize / 2;
+        let y = mouseY - haloSize / 2;
+        
+        // timeout function to create smooth a transition on the mousemove event and the actual movement of the halo
+        halo.style.maskPosition = `${x}px ${y}px`;     
+    });
+
+    // Mot explosé au hover
     document.querySelectorAll(".explodeOnHover").forEach((elem) => {
         // Get all letters and wrap them in a span
         elem.innerHTML = elem.textContent.replace(/\S/g, "<span class='letter'>$&</span>");

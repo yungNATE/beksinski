@@ -38,6 +38,8 @@ body{
     padding-block: 100px;
 
     font-family: "Syne";
+
+    position: relative;
 }
 .content {
     height: 100%;
@@ -49,6 +51,16 @@ body{
     align-self: flex-end;
 }
 
+/* HALO */
+#halo{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: url("https://rare-gallery.com/uploads/posts/4560901-zdzisaw-beksiski-artwork-dark.jpg");
+    filter: brightness(25%);
+
+    mask: url("../media/img/masks/mask-09.svg") no-repeat;
+}
 
 /* Animation on load */
 .content > *{
@@ -109,6 +121,7 @@ body{
 #text{
     display: flex;
     line-height: 3rem;
+    z-index: 0;
 }
 .rainbow {
     background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
