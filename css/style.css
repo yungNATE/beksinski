@@ -134,11 +134,11 @@ canvas{
 /* Shake animation*/
 @keyframes shake {
   0% { transform: translate(0, 0); }
-  10%, 30%, 50%, 70%, 90% { transform: translate(-12px, 4px rotate(0deg)); }
-  15%, 35%, 55%, 75%, 95% { transform: translate(5px, 7px)rotate(1deg); }
-  20%, 40%, 60%, 80% { transform: translate(7px, -8px) rotate(0deg); }
-  25%, 45%, 65%, 85% { transform: translate(-8px, 5px)rotate(-0.5deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
+  10%, 30%, 50%, 70%, 90% { transform: translate(-12px, 4px ); }
+  15%, 35%, 55%, 75%, 95% { transform: translate(5px, 7px); }
+  20%, 40%, 60%, 80% { transform: translate(7px, -8px); }
+  25%, 45%, 65%, 85% { transform: translate(-8px, 5px); }
+  100% { transform: translate(0, 0);}
 }
 
 .shaking {
