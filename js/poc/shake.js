@@ -11,5 +11,5 @@ function startShaking() {
     // Optionnel : Arrêter le tremblement après un certain délai
     setTimeout(function() {
       image.classList.remove("shaking");
-    }, 1000); 
+    }, 1500); 
   }
