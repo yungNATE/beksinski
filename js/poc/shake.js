@@ -13,3 +13,5 @@ function startShaking() {
       image.classList.remove("shaking");
     }, 1500); 
   }
+
+
