@@ -131,6 +131,26 @@ canvas{
   border: 1px solid #7A1500;
 }*/
 
+/* Shake animation*/
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  10%, 30%, 50%, 70%, 90% { transform: translate(-5px, 2px); }
+  15%, 35%, 55%, 75%, 95% { transform: translate(2px, 4px); }
+  20%, 40%, 60%, 80% { transform: translate(5px, -2px); }
+  100% { transform: translate(0, 0); }
+}
+
+.shaking {
+  animation: shake 0.5s infinite;
+}
+
+#shaking { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 
 
 
