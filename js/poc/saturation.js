@@ -9,7 +9,7 @@ var zoomAcceleration = ZOOMACCLBASE
 var zoomedImg;
 
 const GRAVECANVASSRC = '../media/img/cimetiere.jpg';
-const CITYCANVASSRC = '../media/img/chaudFroid.jpg';
+const CITYCANVASSRC = '../media/img/ChaudFroidExtended.jpg';
 
 window.isZooming = true; // true = zoom, false = dézoom
 
@@ -29,7 +29,7 @@ function zoom(){
         zoomLevel *= zoomAcceleration : 
         zoomLevel /= zoomAcceleration
 
-    if(zoomLevel <= ZOOMLVLMIN || zoomLevel >= ZOOMLVLMAX) hasReachedBoundaries = true;
+    if(/*zoomLevel <= ZOOMLVLMIN ||*/ zoomLevel >= ZOOMLVLMAX) hasReachedBoundaries = true;
     
     zoomLevel = clamp(zoomLevel, ZOOMLVLMIN, ZOOMLVLMAX) // cap le zoom level entre ZOOMLVLMIN et ZOOMLVLMAX
     //zoomedImg.style.transform = `scale(${zoomLevel})`
