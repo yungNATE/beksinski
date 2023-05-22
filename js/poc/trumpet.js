@@ -17,7 +17,8 @@ function display(event) {
 
  document.addEventListener('DOMContentLoaded', function() {
     var sound = new Howl({
-      src: ['../music/Miles-Davis-SoWhat.mp3'],
+      src: ['../music/DarkSouls3-Premonition.mp3'],
+      //src: ['../music/Miles-Davis-SoWhat.mp3'],
       //src : ["../music/desole.mp3"],
       loop: true,
     });
