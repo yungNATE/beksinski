@@ -13,7 +13,6 @@ function display(event) {
     volY.innerHTML = "<B>volCos: </b>" + vol2;
  }
 
-/*music\trumpet-lofi-141049.mp3*/
 
  document.addEventListener('DOMContentLoaded', function() {
     var sound = new Howl({
