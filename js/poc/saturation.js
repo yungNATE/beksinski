@@ -8,7 +8,7 @@ var zoomAcceleration = ZOOMACCLBASE
 
 var zoomedImg;
 
-const GRAVECANVASSRC = '../media/img/cimetiere.jpg';
+const GRAVECANVASSRC = '../media/img/cimetiereExtended.jpg';
 const CITYCANVASSRC = '../media/img/ChaudFroidExtended.jpg';
 
 window.isZooming = true; // true = zoom, false = dézoom
