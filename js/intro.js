@@ -1,9 +1,8 @@
 const introMain = () => {
-
-    
     // Effet de halo
     let halo = document.querySelector("#halo");
     let haloSize = 500;
+    let maskSize = `mask-size: ${haloSize}px ${haloSize}px; -webkit-mask-size: ${haloSize}px ${haloSize}px; `;
     halo.style.maskSize = `${haloSize}px ${haloSize}px`;
     window.addEventListener("mousemove", (e) => {
         let mouseX = e.pageX;
@@ -13,7 +12,8 @@ const introMain = () => {
         let y = mouseY - haloSize / 2;
         
         // timeout function to create smooth a transition on the mousemove event and the actual movement of the halo
-        halo.style.maskPosition = `${x}px ${y}px`;     
+        let maskPosition = `mask-position: ${x}px ${y}px; -webkit-mask-position: ${x}px ${y}px; `
+        halo.style = maskSize + maskPosition;
     });
 
     // Mot explosé au hover

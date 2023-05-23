@@ -60,6 +60,7 @@ body{
     filter: brightness(25%);
 
     mask: url("../media/img/masks/mask-09.svg") no-repeat;
+    -webkit-mask: url("../media/img/masks/mask-09.svg") no-repeat;
 }
 
 /* Animation on load */
