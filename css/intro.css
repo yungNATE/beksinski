@@ -118,12 +118,13 @@ body{
     user-select: none;
 }
 
-/* SPAN RAINBOW */
+/* Texte intro */
 #text {
     display: flex;
     line-height: 3rem;
     z-index: 0;
 }
+
 .rainbow {
     /* Sous chrome explodeOnHover + rainbow incompatible */
     background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
@@ -133,6 +134,11 @@ body{
     animation: rainbow_animation 6s ease-in-out infinite;
     background-size: 400% 100%;
 }
+@keyframes rainbow_animation {
+    0%,100% { background-position: 0 0; }
+    50% { background-position: 100% 0; }
+}
+
 .explodeOnHover {
     display: flex;
     pointer-events: none;
@@ -141,10 +147,7 @@ body{
     display: block;
     transition: transform 0.5s;
 }
-@keyframes rainbow_animation {
-    0%,100% { background-position: 0 0; }
-    50% { background-position: 100% 0; }
-}
+
 
 /* BOUTON DEMARRER */
 .content > .btn-flip {
