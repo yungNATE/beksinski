@@ -135,6 +135,7 @@ body{
 }
 .explodeOnHover {
     display: flex;
+    pointer-events: none;
 }
 .explodeOnHover .letter {
     display: block;
