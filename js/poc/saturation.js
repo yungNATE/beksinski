@@ -3,7 +3,7 @@ var zoomLevel = 1
 const ZOOMLVLMIN = 1
 const ZOOMLVLMAX = 95 // valeur arbitraire qui marche
 
-const ZOOMACCLBASE = 1.1
+const ZOOMACCLBASE = 1.05
 var zoomAcceleration = ZOOMACCLBASE
 
 var zoomedImg;
@@ -16,7 +16,7 @@ window.isZooming = true; // true = zoom, false = dézoom
 let zoomdezoom = function() {
     // zoom / dezoom
     zoomedImg = document.querySelector('#zoomdezoom > div > img');
-    zoomedImg.style.transformOrigin = '70% 35%';
+    //zoomedImg.style.transformOrigin = '50% 50%';
     addEventListener('wheel', zoom);
 }
 window.addEventListener('load', zoomdezoom);
@@ -46,8 +46,8 @@ function zoom(){
         zoomAcceleration = ZOOMACCLBASE
         
         isZooming ? 
-            switchImages(zoomedImg, CITYCANVASSRC, '75% 70%') :
-            switchImages(zoomedImg, GRAVECANVASSRC, '70% 35%')
+            switchImages(zoomedImg, CITYCANVASSRC) :
+            switchImages(zoomedImg, GRAVECANVASSRC)
 
         
         window.isZooming = !isZooming
@@ -56,13 +56,8 @@ function zoom(){
 
 }
 
-function switchImages(imgElement, newSrc, newTransformOrigin) {
-    console.log(imgElement.transformOrigin);
-
+function switchImages(imgElement, newSrc) {
     imgElement.src = newSrc;
-    imgElement.style.transformOrigin = newTransformOrigin;
-
-    console.log(imgElement.transformOrigin);
 }
 
 

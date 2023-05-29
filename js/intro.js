@@ -1,5 +1,12 @@
 const introMain = () => {
 
+
+    var Ambientsound = new Howl({
+        src: ['../music/AmbientSound1.mp3'],
+        loop: true,
+    });
+    Ambientsound.play()
+
     
     // Effet de halo
     let halo = document.querySelector("#halo");
@@ -15,6 +22,8 @@ const introMain = () => {
         // timeout function to create smooth a transition on the mousemove event and the actual movement of the halo
         halo.style.maskPosition = `${x}px ${y}px`;     
     });
+
+    
 
     // Mot explosé au hover
     document.querySelectorAll(".explodeOnHover").forEach((elem) => {
