@@ -31,7 +31,7 @@ body{
 
     --bodyPaddingInline: 100px;
     padding-inline: var(--bodyPaddingInline);
-    width: calc(99vw - calc(var(--bodyPaddingInline) * 2));
+    width: calc(100vw - calc(var(--bodyPaddingInline) * 2));
 
     color: white;
     font-size: 2rem;
@@ -56,10 +56,11 @@ body{
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: url("https://rare-gallery.com/uploads/posts/4560901-zdzisaw-beksiski-artwork-dark.jpg");
+    background: url(https://rare-gallery.com/uploads/posts/4560901-zdzisaw-beksiski-artwork-dark.jpg) top center / cover;
     filter: brightness(25%);
 
     mask: url("../media/img/masks/mask-09.svg") no-repeat;
+    -webkit-mask: url("../media/img/masks/mask-09.svg") no-repeat;
 }
 
 /* Animation on load */
@@ -101,7 +102,7 @@ body{
     user-select: none;
     pointer-events: none;
 }
-.content > #logo .img{
+.content > #logo .img {
     filter: invert(100%);
 }
 .content > #logo .alt-logo {
@@ -117,29 +118,36 @@ body{
     user-select: none;
 }
 
-/* SPAN RAINBOW */
-#text{
+/* Texte intro */
+#text {
     display: flex;
     line-height: 3rem;
     z-index: 0;
 }
+
 .rainbow {
+    /* Sous chrome explodeOnHover + rainbow incompatible */
     background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     animation: rainbow_animation 6s ease-in-out infinite;
     background-size: 400% 100%;
-    display: flex;
-}
-.explodeOnHover .letter{
-    display: block;
-    transition: transform 0.5s;
 }
 @keyframes rainbow_animation {
     0%,100% { background-position: 0 0; }
     50% { background-position: 100% 0; }
 }
+
+.explodeOnHover {
+    display: flex;
+    pointer-events: none;
+}
+.explodeOnHover .letter {
+    display: block;
+    transition: transform 0.5s;
+}
+
 
 /* BOUTON DEMARRER */
 .content > .btn-flip {

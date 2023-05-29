@@ -11,6 +11,7 @@ const introMain = () => {
     // Effet de halo
     let halo = document.querySelector("#halo");
     let haloSize = 500;
+    let maskSize = `mask-size: ${haloSize}px ${haloSize}px; -webkit-mask-size: ${haloSize}px ${haloSize}px; `;
     halo.style.maskSize = `${haloSize}px ${haloSize}px`;
     window.addEventListener("mousemove", (e) => {
         let mouseX = e.pageX;
@@ -20,12 +21,11 @@ const introMain = () => {
         let y = mouseY - haloSize / 2;
         
         // timeout function to create smooth a transition on the mousemove event and the actual movement of the halo
-        halo.style.maskPosition = `${x}px ${y}px`;     
+        let maskPosition = `mask-position: ${x}px ${y}px; -webkit-mask-position: ${x}px ${y}px; `
+        halo.style = maskSize + maskPosition;
     });
 
-    
-
-    // Mot explosé au hover
+    //* Mot explosé au hover
     document.querySelectorAll(".explodeOnHover").forEach((elem) => {
         // Get all letters and wrap them in a span
         elem.innerHTML = elem.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
@@ -34,7 +34,9 @@ const introMain = () => {
         elem.style.paddingInline = "8px" // permet d'éviter que les lettres soient coupées par l'effet de background rainbow
 
         // When elem is hovered, explode the letters and rotate and zoom randomly & slightly
-        elem.addEventListener("mouseover", (e) => {
+        let parentOrElem = elem.parentElement.classList.contains("explodeOnHoverParent") ? elem.parentElement : elem;
+        parentOrElem.addEventListener("mouseover", (e) => {
+            console.log("mouseover");
             letters.forEach((letter) => {
                 let x = Math.floor(Math.random() * 10) - 5;
                 let y = Math.floor(Math.random() * 10) - 5;
@@ -48,7 +50,7 @@ const introMain = () => {
         });
 
         // When elem is hovered out, reset the letters to their initial position
-        elem.addEventListener("mouseout", (e) => {
+        parentOrElem.addEventListener("mouseout", (e) => {
             letters.forEach((letter) => {
                 letter.style.transform = "";
                 letter.style.pointerEvents = "auto";
