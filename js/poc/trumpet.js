@@ -1,4 +1,4 @@
-function display(event) {
+/*function display(event) {
     let X = event.clientX;
     let Y = event.clientY;
     let X_rapport = X / window.innerWidth;
@@ -11,7 +11,7 @@ function display(event) {
     let vol = Math.cos((Y_rapport-0.5)*3.15);
     let volY = document.getElementById("volY");
     volY.innerHTML = "<B>volCos: </b>" + vol2;
- }
+ }*/
 
 
  document.addEventListener('DOMContentLoaded', function() {
