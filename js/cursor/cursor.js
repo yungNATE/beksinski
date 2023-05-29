@@ -20,11 +20,4 @@ document.addEventListener('click', () => {
     setTimeout(() => {
         cursor.classList.remove("clicked");
     }, 1000)
-
-    /*borderWidth *= 2;
-    cursor.style.borderWidth = `${borderWidth}px`;
-    scale *= 1.5; // Augmenter la mise à l'échelle de 50% à chaque clic
-    box.style.transform = `scale(${scale})`;*/
-
-    
 })
