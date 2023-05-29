@@ -45,6 +45,20 @@ const cursorMain = () => {
         }, 750)
     })
 
+        var timer;
+
+    cursor.addEventListener('mousedown', function() {
+    timer = setTimeout(changePage, 3000);
+    });
+
+    cursor.addEventListener('mouseup', function() {
+    clearTimeout(timer);
+    });
+
+    function changePage() {
+    window.location.href = 'index.html';
+    }
+
 
 
     let allClickableElements = document.querySelectorAll('a, button, label');
