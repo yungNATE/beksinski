@@ -21,7 +21,9 @@ body,
         left ease-out 100ms,
         background-color ease-out 200ms,
         outline ease-out 200ms,
+        width 1s,
         transform ease-out 200ms;
+        
 
     animation: cursorAnim .5s infinite alternate;
     transform-origin: center;

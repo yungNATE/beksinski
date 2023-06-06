@@ -53,7 +53,7 @@ const cursorMain = () => {
         }, 750)
 
         nbClick++;
-        if (nbClick === 3) {
+        /*if (nbClick === 3) {
 
             var minX = 0;
             var maxX = window.innerWidth - cursor.offsetWidth;
@@ -78,14 +78,44 @@ const cursorMain = () => {
             
             setInterval(moveDiv, interval);
             var duration = 5000; // Durée en millisecondes avant d'arrêter le mouvement (ici, 5 secondes)
-
-            // Arrêter le mouvement après la durée spécifiée
-            setTimeout(function() {
-            clearInterval(intervalId);
-            }, duration);
-            
         }
+        // Arrêter le mouvement après la durée spécifiée
+        setTimeout(function() {
+            clearInterval(intervalId);
+            }, duration);*/
+
+
+
+
     })
+
+    var clickStart;
+
+    document.addEventListener("mousedown", function() {
+    clickStart = Date.now();
+
+    var fillDivInterval = setInterval(function() {
+        var elapsedTime = Date.now() - clickStart;
+        var fillWidth = (elapsedTime / 4000) * 100; // Remplir la div sur une période de 4 secondes
+
+        if (fillWidth >= 100) {
+        fillWidth = 100;
+        clearInterval(fillDivInterval);
+        }
+
+        cursor.style.width = fillWidth + "%";
+    }, 10); // Mettre à jour la largeur de la div toutes les 10 millisecondes
+    });
+
+    cursor.addEventListener("mouseup", function() {
+    cursor.style.width = "0"; // Réinitialiser la largeur de la div lorsque le clic est relâché
+    });
+
+
+
+
+
+
 
         var timer;
 
