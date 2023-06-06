@@ -44,7 +44,7 @@ const cursorMain = () => {
 
     var nbClick = 0;
 
-    document.addEventListener('click', () => {
+    /*document.addEventListener('click', () => {
         cursor.classList.add("expand");
         console.log(nbClick);
         
@@ -82,50 +82,39 @@ const cursorMain = () => {
         // Arrêter le mouvement après la durée spécifiée
         setTimeout(function() {
             clearInterval(intervalId);
-            }, duration);*/
+            }, duration);
 
 
 
 
-    })
+    })*/
 
     var clickStart;
-
-    document.addEventListener("mousedown", function() {
-    clickStart = Date.now();
-
-    var fillDivInterval = setInterval(function() {
+    var outlineInterval;
+    
+    cursor.addEventListener("mousedown", function() {
+      clickStart = Date.now();
+      var outlineWidth = 2; // Largeur initiale de l'outline en pixels
+    
+      outlineInterval = setInterval(function() {
         var elapsedTime = Date.now() - clickStart;
-        var fillWidth = (elapsedTime / 4000) * 100; // Remplir la div sur une période de 4 secondes
-
-        if (fillWidth >= 100) {
-        fillWidth = 100;
-        clearInterval(fillDivInterval);
+        var targetOutlineWidth = (elapsedTime / 4000) * 20; // Largeur de l'outline cible après 4 secondes
+    
+        if (targetOutlineWidth >= 20) {
+          targetOutlineWidth = 20;
+          clearInterval(outlineInterval);
         }
-
-        cursor.style.width = fillWidth + "%";
-    }, 10); // Mettre à jour la largeur de la div toutes les 10 millisecondes
+    
+        cursor.style.outlineWidth = targetOutlineWidth + "px";
+      }, 10); // Mettre à jour la largeur de l'outline toutes les 10 millisecondes
     });
-
+    
     cursor.addEventListener("mouseup", function() {
-    cursor.style.width = "0"; // Réinitialiser la largeur de la div lorsque le clic est relâché
+      clearInterval(outlineInterval);
+      cursor.style.outlineWidth = "2px"; // Réinitialiser la largeur de l'outline lorsque le clic est relâché
     });
 
 
-
-
-
-
-
-        var timer;
-
-    cursor.addEventListener('mousedown', function() {
-    timer = setTimeout(changePage, 3000);
-    });
-
-    cursor.addEventListener('mouseup', function() {
-    clearTimeout(timer);
-    });
 
     function changePage() {
     window.location.href = 'index.html';
