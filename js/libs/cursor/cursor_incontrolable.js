@@ -89,29 +89,39 @@ const cursorMain = () => {
 
     })*/
 
+    var div = document.querySelector('.cursor');
+    var isClicking = false;
     var clickStart;
-    var outlineInterval;
-    
-    cursor.addEventListener("mousedown", function() {
-      clickStart = Date.now();
-      var outlineWidth = 2; // Largeur initiale de l'outline en pixels
-    
-      outlineInterval = setInterval(function() {
-        var elapsedTime = Date.now() - clickStart;
-        var targetOutlineWidth = (elapsedTime / 4000) * 20; // Largeur de l'outline cible après 4 secondes
-    
-        if (targetOutlineWidth >= 20) {
-          targetOutlineWidth = 20;
-          clearInterval(outlineInterval);
+
+    function startShake() {
+    div.classList.add("shake");
+    }
+
+    function stopShake() {
+    div.classList.remove("shake");
+    }
+
+    document.addEventListener("mousedown", function() {
+    isClicking = true;
+    clickStart = Date.now();
+
+    var clickTimeout = setTimeout(function() {
+        if (isClicking) {
+        startShake();
         }
-    
-        cursor.style.outlineWidth = targetOutlineWidth + "px";
-      }, 10); // Mettre à jour la largeur de l'outline toutes les 10 millisecondes
+    }, 4000);
+
+    document.addEventListener("mouseup", function() {
+        isClicking = false;
+        clearTimeout(clickTimeout);
+        stopShake();
     });
-    
-    cursor.addEventListener("mouseup", function() {
-      clearInterval(outlineInterval);
-      cursor.style.outlineWidth = "2px"; // Réinitialiser la largeur de l'outline lorsque le clic est relâché
+
+    document.addEventListener("mouseleave", function() {
+        isClicking = false;
+        clearTimeout(clickTimeout);
+        stopShake();
+    });
     });
 
 

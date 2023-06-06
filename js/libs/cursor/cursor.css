@@ -17,12 +17,13 @@ body,
     position: absolute;
 
     transition: 
+        transform 0.3s, 
         top ease-out 100ms,
         left ease-out 100ms,
         background-color ease-out 200ms,
-        outline-width 1s,
-        outline ease-out 200ms,
-        transform ease-out 200ms;
+        outline ease-out 200ms;
+        /*transform ease-out 200ms;*/
+    
         
 
     animation: cursorAnim .5s infinite alternate;
@@ -76,3 +77,38 @@ body,
   }
 }
 
+@keyframes shake {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  10% {
+    transform: translate(-2px, -2px) rotate(-2deg);
+  }
+  20% {
+    transform: translate(2px, 2px) rotate(2deg);
+  }
+  30% {
+    transform: translate(-2px, -2px) rotate(-2deg);
+  }
+  40% {
+    transform: translate(2px, 2px) rotate(2deg);
+  }
+  50% {
+    transform: translate(-2px, -2px) rotate(-2deg);
+  }
+  60% {
+    transform: translate(2px, 2px) rotate(2deg);
+  }
+  70% {
+    transform: translate(-2px, -2px) rotate(-2deg);
+  }
+  80% {
+    transform: translate(2px, 2px) rotate(2deg);
+  }
+  90% {
+    transform: translate(-2px, -2px) rotate(-2deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
