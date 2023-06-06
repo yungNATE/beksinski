@@ -20,8 +20,8 @@ body,
         top ease-out 100ms,
         left ease-out 100ms,
         background-color ease-out 200ms,
+        outline-width 1s,
         outline ease-out 200ms,
-        width 1s,
         transform ease-out 200ms;
         
 
