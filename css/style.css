@@ -42,6 +42,13 @@ html, body, #poc, #poc section{
   background-repeat: no-repeat;
 }
 
+#hub {
+  background-image: url("../media/img/ChaudFroidExtended.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 canvas{
     position: fixed;
     top: 0;
@@ -80,18 +87,30 @@ canvas{
 }
 
 .cursor-zone {
-  width: 50px; /* Définissez la taille souhaitée du cercle */
-  height: 50px; /* Définissez la taille souhaitée du cercle */
+  width: 150px; /* Définissez la taille souhaitée du cercle */
+  height: 150px; /* Définissez la taille souhaitée du cercle */
   border-radius: 50%; /* Définissez le rayon pour créer un cercle */
   position: fixed; /* Pour positionner le cercle de manière fixe par rapport à la fenêtre */
-  top: 75%; /* Placez le cercle au milieu verticalement */
-  left: 50%; /* Placez le cercle au milieu horizontalement */
+  top: 50%; /* Placez le cercle au milieu verticalement */
+  left: 47%; /* Placez le cercle au milieu horizontalement */
   transform: translate(-50%, -50%); /* Centrez le cercle précisément au milieu */
   background-color: white; /* Fond transparent */
   pointer-events: none; /* Empêche l'élément d'interférer avec les événements de la souris */
   z-index: 999; /* Assurez-vous que la zone du curseur est au-dessus des autres éléments */
 }
 
+.cursor-zonedeux {
+  width: 100px; /* Définissez la taille souhaitée du cercle */
+  height: 100px; /* Définissez la taille souhaitée du cercle */
+  border-radius: 50%; /* Définissez le rayon pour créer un cercle */
+  position: fixed; /* Pour positionner le cercle de manière fixe par rapport à la fenêtre */
+  top: 70%; /* Placez le cercle au milieu verticalement */
+  left: 60%; /* Placez le cercle au milieu horizontalement */
+  transform: translate(-50%, -50%); /* Centrez le cercle précisément au milieu */
+  background-color: blue; /* Fond transparent */
+  pointer-events: none; /* Empêche l'élément d'interférer avec les événements de la souris */
+  z-index: 999; /* Assurez-vous que la zone du curseur est au-dessus des autres éléments */
+}
 
 .cursor::after {
   content: "";
