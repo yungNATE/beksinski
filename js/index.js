@@ -15,7 +15,7 @@ const trumpetJS = () => {
         loop: true,
     });
     window.addEventListener('mousemove', e => {
-
+        // TODO : Transformer ça en objet 'virtualLink'
         const offsetY = 1.5; // offset permettant d'obtenir le centre du son (== son max) au niveau de la trompette
         var y = e.clientY / (window.innerHeight * offsetY); 
         var x = e.clientX / window.innerWidth; 
