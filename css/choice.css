@@ -1,0 +1,8 @@
+@import url("style.css");
+
+#fragments > .content{
+    background-image: url("../media/img/chaudFroid_expended.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
