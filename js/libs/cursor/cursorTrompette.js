@@ -14,8 +14,18 @@ const cursorMain = () => {
             );
             
     // JS
+
+
+
     const cursor = document.querySelector('.cursor');
     const cursorZone = document.querySelector('.cursor-zone');
+
+    // Fonction pour calculer la distance entre deux points
+    function calculateDistance(x1, y1, x2, y2) {
+        const xDistance = x2 - x1;
+        const yDistance = y2 - y1;
+        return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+    }
 
     
     document.addEventListener('mousemove', removeHiddenOnStartupClass);
@@ -28,25 +38,7 @@ const cursorMain = () => {
         let offsetY = cursor.offsetHeight / 2;
         cursor.setAttribute("style", "top: "+(e.pageY - offsetX)+"px; left: "+(e.pageX - offsetY)+"px;")
 
-
-
-    })
-
-    // Fonction pour calculer la distance entre deux points
-    function calculateDistance(x1, y1, x2, y2) {
-        const xDistance = x2 - x1;
-        const yDistance = y2 - y1;
-        return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
-    }
-    
-    // Fonction pour modifier l'opacité du fond du curseur
-    function changeCursorOpacity() {
-        
-        document.addEventListener('mousemove', function(event) {
-        const cursorX = event.clientX;
-        const cursorY = event.clientY;
-        
-        const zoneRect = cursorZone.getBoundingClientRect();
+         const zoneRect = cursorZone.getBoundingClientRect();
         const zoneCenterX = zoneRect.left + (zoneRect.width / 2);
         const zoneCenterY = zoneRect.top + (zoneRect.height / 2);
         
@@ -67,11 +59,11 @@ const cursorMain = () => {
         
         // Modification de l'opacité du fond du curseur
         cursor.style.backgroundColor = `rgba(255, 255, 255, ${clampedOpacity})`;
-        });
-    }
-    
-    // Appel de la fonction pour démarrer la modification de l'opacité du curseur
-    changeCursorOpacity();
+
+
+
+    })
+
 
     let timeoutId;
 
@@ -106,19 +98,6 @@ const cursorMain = () => {
         }, 750)
     })
 
-        var timer;
-
-    cursor.addEventListener('mousedown', function() {
-    timer = setTimeout(changePage, 3000);
-    });
-
-    cursor.addEventListener('mouseup', function() {
-    clearTimeout(timer);
-    });
-
-    function changePage() {
-    window.location.href = 'index.html';
-    }
 
 
 
