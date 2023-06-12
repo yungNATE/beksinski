@@ -52,7 +52,7 @@ const cursorMain = () => {
         const distance = calculateDistance(cursorX, cursorY, zoneCenterX, zoneCenterY);
         
         // Distance maximale entre le curseur et la zone (à partir de laquelle l'opacité est à 1)
-        const maxDistance = 200;
+        const maxDistance = 500;
         
         // Opacité minimale (valeur de fond transparent)
         const minOpacity = 0;

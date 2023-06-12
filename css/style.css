@@ -84,7 +84,7 @@ canvas{
   height: 50px; /* Définissez la taille souhaitée du cercle */
   border-radius: 50%; /* Définissez le rayon pour créer un cercle */
   position: fixed; /* Pour positionner le cercle de manière fixe par rapport à la fenêtre */
-  top: 50%; /* Placez le cercle au milieu verticalement */
+  top: 75%; /* Placez le cercle au milieu verticalement */
   left: 50%; /* Placez le cercle au milieu horizontalement */
   transform: translate(-50%, -50%); /* Centrez le cercle précisément au milieu */
   background-color: white; /* Fond transparent */
