@@ -31,8 +31,23 @@ const trumpetJS = () => {
         // TODO : empecher le click si l'audio context n'a pas encore été créé (trouver une solution propre ; à défaut https://stackoverflow.com/questions/26122115/detect-any-user-interaction)
         if(vol < 0.98) return;
         
-        // TODO : faire un fade out du son et de l'écran avant de changer de page
-        window.location.href = "intro.html";
+        // fade out
+        let fadeDuration = 1; //en secondes
+        sound.fade(vol, 0, fadeDuration*1000);
+
+        var body = document.querySelector('body');
+        body.style.backgroundColor = "black";
+
+        body.querySelectorAll(':scope > *').forEach(element => {
+            element.style.transition = `opacity ${fadeDuration}s ease-out`;
+            element.style.opacity = 0;
+        });
+
+        // changement de page (après le fade out)
+        setTimeout(() => {
+            window.location.href = "intro.html";
+        }, fadeDuration*1000);
+            
     });
     
     // TODO : trouver un moyen de faire cliquer l'utilisateur (⬇️ ne marche pas ⬇️)
