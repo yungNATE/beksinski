@@ -41,8 +41,8 @@ const cursorMain = () => {
     
     function changeCursorOpacity() {
         const cursor = document.querySelector('.cursor');
-        const cursorZone1 = document.querySelector('.cursor-zone');
-        const cursorZone2 = document.querySelector('.cursor-zonedeux');
+        const cursorZone1 = document.querySelector('.zone1');
+        const cursorZone2 = document.querySelector('.zone2');
         
         document.addEventListener('mousemove', function(event) {
           const cursorX = event.clientX;
@@ -67,17 +67,18 @@ const cursorMain = () => {
           let color;
           
           if (distanceToZone1 < maxDistance) {
-            // Calcul de l'opacité en fonction de la distance pour la zone 1 (bleu)
+            // Calcul de l'opacité en fonction de la distance pour la zone 1 (rouge)
             opacity = 1 - (distanceToZone1 / maxDistance);
-            color = interpolateColors('#0000FF', '#FF0000', opacity); // Interpolation entre bleu et rouge
-          } else if (distanceToZone2 < maxDistance) {
-            // Calcul de l'opacité en fonction de la distance pour la zone 2 (rouge)
-            opacity = 1 - (distanceToZone2 / maxDistance);
             color = interpolateColors('#FF0000', '#0000FF', opacity); // Interpolation entre rouge et bleu
+          } else if (distanceToZone2 < maxDistance) {
+            // Calcul de l'opacité en fonction de la distance pour la zone 2 (bleu)
+            opacity = 1 - (distanceToZone2 / maxDistance);
+            color = interpolateColors('#0000FF', '#FF0000', opacity); // Interpolation entre bleu et rouge
           } else {
             // Par défaut, fond transparent
             color = 'transparent';
           }
+          
           
           cursor.style.backgroundColor = color;
         });
