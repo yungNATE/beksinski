@@ -66,14 +66,14 @@ const cursorMain = () => {
           let opacity = 1;
           let color;
           
-          if (distanceToZone1 < distanceToZone2) {
+          if (distanceToZone1 > distanceToZone2) {
             // Calcul de l'opacité en fonction de la distance pour la zone 1 (rouge)
             opacity = 1 - (distanceToZone1 / maxDistance);
-            color = interpolateColors('#FF0000', '#0000FF', opacity); // Interpolation entre rouge et bleu
-          } else if (distanceToZone2 < distanceToZone1) {
+            color = interpolateColors('#682D61', '#193867', opacity); // Interpolation entre rouge et bleu
+          } else if (distanceToZone2 > distanceToZone1) {
             // Calcul de l'opacité en fonction de la distance pour la zone 2 (bleu)
             opacity = 1 - (distanceToZone2 / maxDistance);
-            color = interpolateColors('#0000FF', '#FF0000', opacity); // Interpolation entre bleu et rouge
+            color = interpolateColors('#193867', '#682D61', opacity); // Interpolation entre bleu et rouge
           } else {
             // Par défaut, fond transparent
             color = 'transparent';
