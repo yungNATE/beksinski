@@ -62,24 +62,7 @@ canvas{
 
 
 /* Personalisation du curseur */
-.cursor {
-  width: 20px;
-  height: 20px;
-  border: 2px solid white;
-  border-radius: 50%;
-  position: absolute;
-  /*transition: border-width 0.5s ease-in-out;*/
-  transition: transform 0.5s ease-in-out;
-  transform-origin: center;
-
-  /* transition-duration: 200ms; 
-  transition-duration: 75ms;
-  transition-timing-function: ease-out;
-  animation: cursorAnim .5s infinite alternate;
-  pointer-events: none;*/
-}
-
-.cursor::after {
+/* .cursor::after {
   content: "";
   width: 20px;
   height: 20px;
@@ -89,47 +72,12 @@ canvas{
   top: -8px;
   left: -8px;
   animation: cursorAnim2 .5s infinite alternate;
-}
-
-/*@keyframes cursorAnim {
-  from {
-      transform: scale(1);
-  }
-  to {
-      transform: scale(.7);
-  }
-}
-
-@keyframes cursorAnim2 {
-  from {
-      transform: scale(1);
-  }
-  to {
-      transform: scale(.4);
-  }
-}*/
-
-@keyframes cursorAnim3 {
-  0% {
-      transform: scale(1);
-  }
-  50% {
-      transform: scale(2.5);
-  }
-  100% {
-      transform: scale(1);
-      opacity: 0;
-  }
-}
+} */
 
 .cursor.clicked {
   border-width: 10px;
 }
 
-/*.expand {
-  animation: cursorAnim3 .5s forwards;
-  border: 1px solid #7A1500;
-}*/
 
 /* Shake animation*/
 @keyframes shake {
