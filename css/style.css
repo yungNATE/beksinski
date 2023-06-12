@@ -87,7 +87,7 @@ canvas{
   top: 75%; /* Placez le cercle au milieu verticalement */
   left: 50%; /* Placez le cercle au milieu horizontalement */
   transform: translate(-50%, -50%); /* Centrez le cercle précisément au milieu */
-  background-color: white; /* Fond transparent */
+  background-color: transparent; /* Fond transparent */
   pointer-events: none; /* Empêche l'élément d'interférer avec les événements de la souris */
   z-index: 999; /* Assurez-vous que la zone du curseur est au-dessus des autres éléments */
 }
