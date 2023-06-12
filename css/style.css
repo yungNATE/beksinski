@@ -7,41 +7,11 @@ body{
     background-color: black;
 }
 
-
-html, body, #poc, #poc section{
+html, body, .content{
     width: 100%;
     height: 100%;
 }
-#poc section{
-    margin-bottom: 100px;
-}
-#poc section div{
-    width: 1000px;
-    height: 1000px;
-}
 
-#poc .liquidEffect-wapper{
-}
-
-
-#poc .zoomdezoom-wrapper{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#poc .zoomdezoom-wrapper img{
-    /* transform-origin: 70% 35%; */
-}
-
-#trumpet {
-  background-image: url("../media/img/trumpet_expended.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 
 canvas{
     position: fixed;

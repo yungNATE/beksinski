@@ -1,0 +1,8 @@
+@import url("style.css");
+
+#index {
+    background-image: url("../media/img/trumpet_expended.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
