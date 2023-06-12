@@ -4,6 +4,7 @@ body{
     overflow: hidden;
     padding: 0;
     margin: 0;
+    background-color: black;
 }
 
 
@@ -57,25 +58,6 @@ canvas{
 .sound_test {
   font-family: "JetBrains Mono",monospace;
   color: hsl(0, 76%, 68%);
-}
-
-
-
-/* Personalisation du curseur */
-/* .cursor::after {
-  content: "";
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  border-radius: 50%;
-  opacity: .5;
-  top: -8px;
-  left: -8px;
-  animation: cursorAnim2 .5s infinite alternate;
-} */
-
-.cursor.clicked {
-  border-width: 10px;
 }
 
 

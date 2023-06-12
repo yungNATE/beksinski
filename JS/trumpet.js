@@ -1,102 +1,41 @@
-function display(event) {
-    let X = event.clientX;
-    let Y = event.clientY;
-    let X_rapport = X / window.innerWidth;
-    let Y_rapport = Y / window.innerHeight;
-    let vol2 = -(Math.pow(X_rapport-0.5, 2)+Math.pow(Y_rapport-0.5,2))*4+1;
-    let result = document.getElementById("result");
-    result.innerHTML = "<b>X-coordinate: </b>" + X_rapport;
-    let resultY = document.getElementById("resultY");
-    resultY.innerHTML = "<b>Y-coordinate: </b>" + Y_rapport;
-    let vol = Math.cos((Y_rapport-0.5)*3.15);
-    let volY = document.getElementById("volY");
-    volY.innerHTML = "<B>volCos: </b>" + vol2;
- }
- document.addEventListener("mousemove", display(e));
+// Chargement de la librairie Howler
+var script = document.createElement('script');
+script.src = "./js/libs/howler/howler.min.js";
+document.head.appendChild(script);
 
+// Variables globales
+var vol = 0; // volume du son
 
- document.addEventListener('DOMContentLoaded', function() {
+// Main
+const trumpetJS = () => {
+
+    // Gestion du son
     var sound = new Howl({
-      src: ['../music/DarkSouls3-Premonition.mp3'],
-      //src: ['../music/Miles-Davis-SoWhat.mp3'],
-      //src : ["../music/desole.mp3"],
-      loop: true,
+        src: ['media/audio/DarkSouls3-Premonition.mp3'],
+        loop: true,
     });
-  
+
     window.addEventListener('mousemove', function(event) {
-      var y = event.clientY / (window.innerHeight); 
-      var x = event.clientX / window.innerWidth; 
-      var vol = -(Math.pow(y-0.5, 2)+Math.pow(x-0.5,2))*4+1;
-      sound.volume(vol); 
-      var stereo = (x-0.5)*2; 
-      //sound.stereo(stereo); 
+
+        const offsetY = 475; // offset permettant d'obtenir le centre du son (== son max) au niveau de la trompette
+        var y = event.clientY / (window.innerHeight + offsetY); 
+        var x = event.clientX / window.innerWidth; 
+        vol = -(Math.pow(y-0.5, 2) + Math.pow(x-0.5,2))*4 + 1;
+        sound.volume(vol); 
+        console.log(vol);
+
+        // var stereo = (x-0.5)*2; 
+        //sound.stereo(stereo); 
     });
-  
+
     sound.play();
-  });
 
+    // Gestion changement de page
+    window.addEventListener('click', function(event) {
+        if(vol < 0.98) return;
 
+        window.location.href = "intro.html";
+    });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import { useEffect } from "react";
-import { Howl } from "howler";
-import mySound from "./music/trumpet-lofi-141049.mp3"; // our fictitious audio file, replace this with whatever sound you want to play
-
-
-const getStereoBias = (mouseX) => {
-    const w = component.clientWidth; // grab the component's width
-    const bias = -((Math.round(w / 2) - mouseX) / w) * 2; // calculate a value of -1 to 1 based on the cursor position within the component
-    return bias;
-};
-
-
-const handleClick = (event) => {
-    const stereoBias = getStereoBias(event.clientX); //  calculate the "position" of the sound's origin
-
-    const sound = new Howl({ src: mySound, stereo: stereoBias }); // instantiate a new Howl here, passing it the path to our sound effect and stereo bias "position"
-    sound.play(); //  as soon as the object is created, we can play the sound effect
-  };
-
-
-
-
-const MyComponent = () => {
-  let component;
-
-  useEffect(() => {
-    const handleClick = (e) => {
-      const sound = new Howl({ src: mySound }); // instantiate a new Howl here, passing it the path to our sound effect
-      sound.play(); //  as soon as the object is created, we can play the sound effect
-    };
-
-    component && component.addEventListener("click", handleClick); //  once the component has been rendered and saved to a variable, add the EventListener
-
-    return () => {
-      component && component.removeEventListener("click", handleClick); //  if the component is removed, remove the EventListener
-    };
-  }, [component]);
-
-  return (
-    <div
-      style={{ width: "100vw", height: "100vh" }} //  adding the styling ensures that our component will cover the entire viewport
-      ref={(el) => (component = el)} // save the rendered element to a ref variable we can manipulate
-    />
-  );
-};
-
-export default MyComponent;
-*/
+}
+window.addEventListener('load', trumpetJS);
