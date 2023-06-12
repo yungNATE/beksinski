@@ -31,6 +31,7 @@ const trumpetJS = () => {
         // TODO : empecher le click si l'audio context n'a pas encore été créé (trouver une solution propre ; à défaut https://stackoverflow.com/questions/26122115/detect-any-user-interaction)
         if(vol < 0.98) return;
         
+        // TODO : faire un fade out du son et de l'écran avant de changer de page
         window.location.href = "intro.html";
     });
     
