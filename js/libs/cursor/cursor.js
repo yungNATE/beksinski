@@ -67,5 +67,5 @@ const cursorMain = () => {
 if(! document.isCursorLibAlreadyLoaded) {
     document.readyState === 'complete' ? 
         cursorMain() :
-        window.addEventListener('load', cursorMain);
+        window.addEventListener('DOMContentLoaded', cursorMain);
 }
