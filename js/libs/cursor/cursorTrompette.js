@@ -68,16 +68,16 @@ const cursorMain = () => {
     let timeoutId;
 
     function handleMouseDown() {
-    // Lancer un délai de deux secondes avant de changer de page
-    timeoutId = setTimeout(function() {
-        // Action de l'appui long (changement de page)
-        window.location.href = '../index.html'; // Remplacez 'nouvelle_page.html' par l'URL de la page vers laquelle vous souhaitez naviguer
-    }, 2000); // 2000 ms = 2 secondes
+        // Lancer un délai de deux secondes avant de changer de page
+        timeoutId = setTimeout(function() {
+            // Action de l'appui long (changement de page)
+            window.location.href = '../index.html'; // Remplacez 'nouvelle_page.html' par l'URL de la page vers laquelle vous souhaitez naviguer
+        }, 2000); // 2000 ms = 2 secondes
     }
 
     function handleMouseUp() {
-    // Annuler le délai si l'utilisateur a relâché le bouton de souris avant la fin du délai de deux secondes
-    clearTimeout(timeoutId);
+        // Annuler le délai si l'utilisateur a relâché le bouton de souris avant la fin du délai de deux secondes
+        clearTimeout(timeoutId);
     }
 
 
