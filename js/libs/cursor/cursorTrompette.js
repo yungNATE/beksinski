@@ -89,7 +89,7 @@ const cursorMain = () => {
 
 
 
-
+/*
     document.addEventListener('click', () => {
         cursor.classList.add("expand");
 
@@ -113,9 +113,9 @@ const cursorMain = () => {
         clickable.addEventListener('mouseleave', () => {
             cursor.classList.remove("hover")
         })
-    })
+    })*/ 
 
-    document.isCursorLibAlreadyLoaded = true;
+    document.isCursorLibAlreadyLoaded = true; 
 }
 
 if(! document.isCursorLibAlreadyLoaded) {
