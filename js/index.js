@@ -43,14 +43,14 @@ const trumpetJS = () => {
             element.style.opacity = 0;
         });
 
-        // changement de page (après le fade out)
+        // Changement de page (après le fade out)
         setTimeout(() => {
             window.location.href = "intro.html";
         }, fadeDuration*1000);
             
     });
     
-    // TODO : trouver un moyen de faire cliquer l'utilisateur (⬇️ ne marche pas ⬇️)
+    // TODO : trouver un moyen de faire cliquer l'utilisateur (⬇️ ne marche pas ⬇️) (sinon, faire une modale à la main cf. <modal>)
     // alert("Vous vous apprêtez a vivre une experience sonore 🎧🎵. Pensez à activer le son de votre navigateur.")
 }
 window.addEventListener('load', trumpetJS);
