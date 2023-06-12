@@ -5,16 +5,18 @@ const cursorMain = () => {
         'beforeend',
         '<link rel="stylesheet" href="/beksinski/js/libs/cursor/cursor.css" />'
         );
-
-    // ajout du HTML
-    document.querySelector('body')
+        
+        // ajout du HTML
+        document.querySelector('body')
         .insertAdjacentHTML(
             'beforeend',
             '<div class="cursor hiddenOnStartup"></div>'
-        );
-
+            );
+            
     // JS
     const cursor = document.querySelector('.cursor');
+    const cursorZone = document.querySelector('.cursor-zone');
+
     
     document.addEventListener('mousemove', removeHiddenOnStartupClass);
     function removeHiddenOnStartupClass(){
@@ -39,7 +41,6 @@ const cursorMain = () => {
     
     // Fonction pour modifier l'opacité du fond du curseur
     function changeCursorOpacity() {
-        const cursorZone = document.querySelector('.cursor-zone');
         
         document.addEventListener('mousemove', function(event) {
         const cursorX = event.clientX;
@@ -71,6 +72,26 @@ const cursorMain = () => {
     
     // Appel de la fonction pour démarrer la modification de l'opacité du curseur
     changeCursorOpacity();
+
+    let timeoutId;
+
+    function handleMouseDown() {
+    // Lancer un délai de deux secondes avant de changer de page
+    timeoutId = setTimeout(function() {
+        // Action de l'appui long (changement de page)
+        window.location.href = '../index.html'; // Remplacez 'nouvelle_page.html' par l'URL de la page vers laquelle vous souhaitez naviguer
+    }, 2000); // 2000 ms = 2 secondes
+    }
+
+    function handleMouseUp() {
+    // Annuler le délai si l'utilisateur a relâché le bouton de souris avant la fin du délai de deux secondes
+    clearTimeout(timeoutId);
+    }
+
+
+    cursorZone.addEventListener('mousedown', handleMouseDown);
+    cursorZone.addEventListener('mouseup', handleMouseUp);
+
   
 
 
