@@ -63,8 +63,9 @@ const cursorMain = () => {
           const minOpacity = 0;
           const maxOpacity = 1;
           
-          let opacity = 1;
           let color;
+          const opacity = 1 - (distanceToZone1 / maxDistance);
+          const clampedOpacity = Math.max(minOpacity, Math.min(maxOpacity, opacity));
           
           if (distanceToZone1 > distanceToZone2) {
             // Calcul de l'opacité en fonction de la distance pour la zone 1 (rouge)
