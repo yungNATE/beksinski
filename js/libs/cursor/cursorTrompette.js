@@ -14,18 +14,8 @@ const cursorMain = () => {
             );
             
     // JS
-
-
-
     const cursor = document.querySelector('.cursor');
     const cursorZone = document.querySelector('.cursor-zone');
-
-    // Fonction pour calculer la distance entre deux points
-    function calculateDistance(x1, y1, x2, y2) {
-        const xDistance = x2 - x1;
-        const yDistance = y2 - y1;
-        return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
-    }
 
     
     document.addEventListener('mousemove', removeHiddenOnStartupClass);
@@ -38,7 +28,25 @@ const cursorMain = () => {
         let offsetY = cursor.offsetHeight / 2;
         cursor.setAttribute("style", "top: "+(e.pageY - offsetX)+"px; left: "+(e.pageX - offsetY)+"px;")
 
-         const zoneRect = cursorZone.getBoundingClientRect();
+
+
+    })
+
+    // Fonction pour calculer la distance entre deux points
+    function calculateDistance(x1, y1, x2, y2) {
+        const xDistance = x2 - x1;
+        const yDistance = y2 - y1;
+        return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+    }
+    
+    // Fonction pour modifier l'opacité du fond du curseur
+    function changeCursorOpacity() {
+        
+        document.addEventListener('mousemove', function(event) {
+        const cursorX = event.clientX;
+        const cursorY = event.clientY;
+        
+        const zoneRect = cursorZone.getBoundingClientRect();
         const zoneCenterX = zoneRect.left + (zoneRect.width / 2);
         const zoneCenterY = zoneRect.top + (zoneRect.height / 2);
         
@@ -59,32 +67,33 @@ const cursorMain = () => {
         
         // Modification de l'opacité du fond du curseur
         cursor.style.backgroundColor = `rgba(255, 255, 255, ${clampedOpacity})`;
-
-
-
-    })
-
+        });
+    }
+    
+    // Appel de la fonction pour démarrer la modification de l'opacité du curseur
+    changeCursorOpacity();
 
     let timeoutId;
 
     function handleMouseDown() {
-        // Lancer un délai de deux secondes avant de changer de page
-        timeoutId = setTimeout(function() {
-            // Action de l'appui long (changement de page)
-            window.location.href = '../index.html'; // Remplacez 'nouvelle_page.html' par l'URL de la page vers laquelle vous souhaitez naviguer
-        }, 2000); // 2000 ms = 2 secondes
+    // Lancer un délai de deux secondes avant de changer de page
+    timeoutId = setTimeout(function() {
+        // Action de l'appui long (changement de page)
+        window.location.href = 'saturation.html'; // Remplacez 'nouvelle_page.html' par l'URL de la page vers laquelle vous souhaitez naviguer
+    }, 2000); // 2000 ms = 2 secondes
     }
 
     function handleMouseUp() {
-        // Annuler le délai si l'utilisateur a relâché le bouton de souris avant la fin du délai de deux secondes
-        clearTimeout(timeoutId);
+    // Annuler le délai si l'utilisateur a relâché le bouton de souris avant la fin du délai de deux secondes
+    clearTimeout(timeoutId);
     }
 
 
     cursorZone.addEventListener('mousedown', handleMouseDown);
-    cursorZone.addEventListener('mouseup', handleMouseUp);
+    myDiv.addEventListener('mouseup', handleMouseUp);
 
   
+
 
 
 
@@ -97,6 +106,19 @@ const cursorMain = () => {
         }, 750)
     })
 
+        var timer;
+
+    cursor.addEventListener('mousedown', function() {
+    timer = setTimeout(changePage, 3000);
+    });
+
+    cursor.addEventListener('mouseup', function() {
+    clearTimeout(timer);
+    });
+
+    function changePage() {
+    window.location.href = 'index.html';
+    }
 
 
 
@@ -114,7 +136,7 @@ const cursorMain = () => {
         })
     })
 
-    document.isCursorLibAlreadyLoaded = true; 
+    document.isCursorLibAlreadyLoaded = true;
 }
 
 if(! document.isCursorLibAlreadyLoaded) {
