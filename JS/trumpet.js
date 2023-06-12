@@ -12,6 +12,7 @@ function display(event) {
     let volY = document.getElementById("volY");
     volY.innerHTML = "<B>volCos: </b>" + vol2;
  }
+ document.addEventListener("mousemove", display(e));
 
 
  document.addEventListener('DOMContentLoaded', function() {
