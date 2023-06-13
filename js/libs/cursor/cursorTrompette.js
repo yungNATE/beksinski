@@ -15,7 +15,6 @@ const cursorMain = () => {
             
     // JS
     const cursor = document.querySelector('.cursor');
-    const cursorZone = document.querySelector('.cursor-zone');
 
     
     document.addEventListener('mousemove', removeHiddenOnStartupClass);
