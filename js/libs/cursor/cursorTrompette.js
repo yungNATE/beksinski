@@ -3,7 +3,7 @@ const cursorMain = () => {
     document.querySelector('head')
     .insertAdjacentHTML(
         'beforeend',
-        '<link rel="stylesheet" href="/beksinski/js/libs/cursor/cursor.css" />'
+        '<link rel="stylesheet" href="beksinski_final/js/libs/cursor/cursor.css" />'
         );
         
         // ajout du HTML
@@ -15,7 +15,35 @@ const cursorMain = () => {
             
     // JS
     const cursor = document.querySelector('.cursor');
-    const cursorZone = document.querySelector('.cursor-zone');
+
+    window.addEventListener('mousemove', e => {
+        // TODO : Transformer ça en objet 'virtualLink'
+        const offsetY = 1.5; // offset permettant d'obtenir le centre du son (== son max) au niveau de la trompette
+        var y = e.clientY / (window.innerHeight * offsetY); 
+        var x = e.clientX / window.innerWidth; 
+        vol = -(Math.pow(y-0.5, 2) + Math.pow(x-0.5,2))*4 + 1;
+
+        let distance = vol
+        
+        // Distance maximale entre le curseur et la zone (à partir de laquelle l'opacité est à 1)
+        const maxDistance = 500;
+        
+        // Opacité minimale (valeur de fond transparent)
+        const minOpacity = 0;
+        
+        // Opacité maximale (valeur de fond blanc)
+        const maxOpacity = 1;
+        
+        // Calcul de l'opacité en fonction de la distance
+        const opacity = distance;
+        const clampedOpacity = Math.max(minOpacity, Math.min(maxOpacity, opacity));
+
+        console.log(opacity);
+        
+        // Modification de l'opacité du fond du curseur
+        cursor.style.backgroundColor = `rgba(255, 255, 255, ${clampedOpacity})`;
+
+    });
 
     
     document.addEventListener('mousemove', removeHiddenOnStartupClass);
@@ -31,47 +59,6 @@ const cursorMain = () => {
 
 
     })
-
-    // Fonction pour calculer la distance entre deux points
-    function calculateDistance(x1, y1, x2, y2) {
-        const xDistance = x2 - x1;
-        const yDistance = y2 - y1;
-        return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
-    }
-    
-    // Fonction pour modifier l'opacité du fond du curseur
-    function changeCursorOpacity() {
-        
-        document.addEventListener('mousemove', function(event) {
-        const cursorX = event.clientX;
-        const cursorY = event.clientY;
-        
-        const zoneRect = cursorZone.getBoundingClientRect();
-        const zoneCenterX = zoneRect.left + (zoneRect.width / 2);
-        const zoneCenterY = zoneRect.top + (zoneRect.height / 2);
-        
-        const distance = calculateDistance(cursorX, cursorY, zoneCenterX, zoneCenterY);
-        
-        // Distance maximale entre le curseur et la zone (à partir de laquelle l'opacité est à 1)
-        const maxDistance = 500;
-        
-        // Opacité minimale (valeur de fond transparent)
-        const minOpacity = 0;
-        
-        // Opacité maximale (valeur de fond blanc)
-        const maxOpacity = 1;
-        
-        // Calcul de l'opacité en fonction de la distance
-        const opacity = 1 - (distance / maxDistance);
-        const clampedOpacity = Math.max(minOpacity, Math.min(maxOpacity, opacity));
-        
-        // Modification de l'opacité du fond du curseur
-        cursor.style.backgroundColor = `rgba(255, 255, 255, ${clampedOpacity})`;
-        });
-    }
-    
-    // Appel de la fonction pour démarrer la modification de l'opacité du curseur
-    changeCursorOpacity();
 
     let timeoutId;
 
@@ -89,14 +76,7 @@ const cursorMain = () => {
     }
 
 
-    cursorZone.addEventListener('mousedown', handleMouseDown);
-    // myDiv.addEventListener('mouseup', handleMouseUp);
-
   
-
-
-
-
 
     document.addEventListener('click', () => {
         cursor.classList.add("expand");

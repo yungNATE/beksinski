@@ -5,6 +5,8 @@ document.head.appendChild(script);
 
 // Variables globales
 var vol = 0; // volume du son
+const cursor = document.querySelector('.cursor');
+
 
 // Main
 const trumpetJS = () => {
@@ -22,11 +24,9 @@ const trumpetJS = () => {
         var x = e.clientX / window.innerWidth; 
         vol = -(Math.pow(y-0.5, 2) + Math.pow(x-0.5,2))*4 + 1;
         sound.volume(vol); 
-
-        // var stereo = (x-0.5)*2; 
-        //sound.stereo(stereo); 
     });
     sound.play();
+
     
     // Gestion changement de page
     window.addEventListener('click', () => {

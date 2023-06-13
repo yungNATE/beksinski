@@ -51,41 +51,4 @@ canvas{
   align-items: center;
 }
 
-.cursor-zone {
-  width: 150px; /* Définissez la taille souhaitée du cercle */
-  height: 150px; /* Définissez la taille souhaitée du cercle */
-  border-radius: 50%; /* Définissez le rayon pour créer un cercle */
-  position: fixed; /* Pour positionner le cercle de manière fixe par rapport à la fenêtre */
-  top: 50%; /* Placez le cercle au milieu verticalement */
-  left: 47%; /* Placez le cercle au milieu horizontalement */
-  transform: translate(-50%, -50%); /* Centrez le cercle précisément au milieu */
-  background-color: white; /* Fond transparent */
-  pointer-events: none; /* Empêche l'élément d'interférer avec les événements de la souris */
-  z-index: 999; /* Assurez-vous que la zone du curseur est au-dessus des autres éléments */
-}
 
-.zone1 {
-  width: 150px; /* Définissez la taille souhaitée du cercle */
-  height: 150px; /* Définissez la taille souhaitée du cercle */
-  border-radius: 50%; /* Définissez le rayon pour créer un cercle */
-  position: fixed; /* Pour positionner le cercle de manière fixe par rapport à la fenêtre */
-  top: 50%; /* Placez le cercle au milieu verticalement */
-  left: 47%; /* Placez le cercle au milieu horizontalement */
-  transform: translate(-50%, -50%); /* Centrez le cercle précisément au milieu */
-  background-color: transparent; /* Fond transparent */
-  pointer-events: none; /* Empêche l'élément d'interférer avec les événements de la souris */
-  z-index: 999; /* Assurez-vous que la zone du curseur est au-dessus des autres éléments */
-}
-
-.zone2 {
-  width: 100px; /* Définissez la taille souhaitée du cercle */
-  height: 100px; /* Définissez la taille souhaitée du cercle */
-  border-radius: 50%; /* Définissez le rayon pour créer un cercle */
-  position: fixed; /* Pour positionner le cercle de manière fixe par rapport à la fenêtre */
-  top: 70%; /* Placez le cercle au milieu verticalement */
-  left: 60%; /* Placez le cercle au milieu horizontalement */
-  transform: translate(-50%, -50%); /* Centrez le cercle précisément au milieu */
-  background-color: transparent; /* Fond transparent */
-  pointer-events: none; /* Empêche l'élément d'interférer avec les événements de la souris */
-  z-index: 999; /* Assurez-vous que la zone du curseur est au-dessus des autres éléments */
-}
