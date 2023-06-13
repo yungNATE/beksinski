@@ -22,8 +22,6 @@ const cursorMain = () => {
         var y = e.clientY / (window.innerHeight * offsetY); 
         var x = e.clientX / window.innerWidth; 
         vol = -(Math.pow(y-0.5, 2) + Math.pow(x-0.5,2))*4 + 1;
-        sound.volume(vol); 
-
 
         let distance = vol
         
