@@ -5,6 +5,8 @@ document.head.appendChild(script);
 
 // Variables globales
 var vol = 0; // volume du son
+const cursor = document.querySelector('.cursor');
+
 
 // Main
 const trumpetJS = () => {
@@ -38,6 +40,8 @@ const trumpetJS = () => {
         // Calcul de l'opacité en fonction de la distance
         const opacity = 1 - (distance / maxDistance);
         const clampedOpacity = Math.max(minOpacity, Math.min(maxOpacity, opacity));
+
+        console.log(clampedOpacity);
         
         // Modification de l'opacité du fond du curseur
         cursor.style.backgroundColor = `rgba(255, 255, 255, ${clampedOpacity})`;
