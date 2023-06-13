@@ -32,47 +32,6 @@ const cursorMain = () => {
 
     })
 
-    // Fonction pour calculer la distance entre deux points
-    function calculateDistance(x1, y1, x2, y2) {
-        const xDistance = x2 - x1;
-        const yDistance = y2 - y1;
-        return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
-    }
-    
-    // Fonction pour modifier l'opacité du fond du curseur
-    function changeCursorOpacity() {
-        
-        document.addEventListener('mousemove', function(event) {
-        const cursorX = event.clientX;
-        const cursorY = event.clientY;
-        
-        const zoneRect = cursorZone.getBoundingClientRect();
-        const zoneCenterX = zoneRect.left + (zoneRect.width / 2);
-        const zoneCenterY = zoneRect.top + (zoneRect.height / 2);
-        
-        const distance = calculateDistance(cursorX, cursorY, zoneCenterX, zoneCenterY);
-        
-        // Distance maximale entre le curseur et la zone (à partir de laquelle l'opacité est à 1)
-        const maxDistance = 500;
-        
-        // Opacité minimale (valeur de fond transparent)
-        const minOpacity = 0;
-        
-        // Opacité maximale (valeur de fond blanc)
-        const maxOpacity = 1;
-        
-        // Calcul de l'opacité en fonction de la distance
-        const opacity = 1 - (distance / maxDistance);
-        const clampedOpacity = Math.max(minOpacity, Math.min(maxOpacity, opacity));
-        
-        // Modification de l'opacité du fond du curseur
-        cursor.style.backgroundColor = `rgba(255, 255, 255, ${clampedOpacity})`;
-        });
-    }
-    
-    // Appel de la fonction pour démarrer la modification de l'opacité du curseur
-    changeCursorOpacity();
-
     let timeoutId;
 
     function handleMouseDown() {
