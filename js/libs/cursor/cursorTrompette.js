@@ -90,7 +90,7 @@ const cursorMain = () => {
 
 
     cursorZone.addEventListener('mousedown', handleMouseDown);
-    myDiv.addEventListener('mouseup', handleMouseUp);
+    // myDiv.addEventListener('mouseup', handleMouseUp);
 
   
 
