@@ -2,12 +2,17 @@ const mainJS = () => {
 
     // load homemade cursor library
     let script = document.createElement('script');
-    let doctitle = document.title;
-    if(doctitle === "Beksiński index"){
-        script.src = "js/libs/cursor/cursorTrompette.js";
-    }else{
-        script.src = "js/libs/cursor/cursor.js";
+
+    switch (document.title) {
+        case "Beksiński index":
+            script.src = "js/libs/cursor/cursorTrompette.js";
+            break;
+    
+        default:
+            script.src = "js/libs/cursor/cursor.js";
+            break;
     }
+
     document.head.appendChild(script);
 }
 window.addEventListener('DOMContentLoaded', mainJS);
