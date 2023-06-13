@@ -1,3 +1,4 @@
+// TODO : régler problème listeners + 360.js chargé n fois
 const virtualLink = {
     //* Attributs
     self: null,
@@ -15,12 +16,6 @@ const virtualLink = {
     },
 
     // Mousemove functions
-    updateDistance: function() {
-      document.addEventListener('mousemove', e => this.calculerDistance(e));
-    },
-    removeUpdateDistancelistener: function() {
-      document.removeEventListener('mousemove', this.calculerDistance);
-    },
     calculerDistance: function(e){
 
       var y = e.clientY / (window.innerHeight * this.offsetY);
@@ -29,14 +24,14 @@ const virtualLink = {
       
       this.proximiteAvecLeCurseur = pos1; // Met à jour la valeur de proximiteAvecLeCurseur
     },
+    updateDistance: function() {
+      document.addEventListener('mousemove', this.calculerDistance);
+    },
+    removeUpdateDistancelistener: function() {
+      document.removeEventListener('mousemove', this.calculerDistance);
+    },
   
     // Click functions
-    checkEnContinuDuClic: function() {
-      document.addEventListener('click', e => this.virtualLinkClicked(e));
-    },
-    removeCheckEnContinuDuCliclistener: function() {
-      document.removeEventListener('click', this.virtualLinkClicked);
-    },
     virtualLinkClicked: function(e) {
       if(this.proximiteAvecLeCurseur < 0.8) return
             
@@ -52,7 +47,7 @@ const virtualLink = {
           const script = document.createElement('script');
           script.src = 'js/360.js';
           document.head.appendChild(script);
-          document.head.removeChild(document.querySelector("#choiceScript"));
+          // document.head.removeChild(document.querySelector("#choiceScript"));
 
           break;
 
@@ -63,7 +58,14 @@ const virtualLink = {
         default:
           break;
   }
-    }
+    },
+    checkEnContinuDuClic: function() {
+      document.addEventListener('click', this.virtualLinkClicked);
+    },
+    removeCheckEnContinuDuCliclistener: function() {
+      console.log("removeCheckEnContinuDuCliclistener");
+      document.removeEventListener('click', this.virtualLinkClicked);
+    },
 };
 const choiceJS = () => {
     
