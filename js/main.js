@@ -5,7 +5,7 @@ const mainJS = () => {
 
     switch (document.title) {
         case "Beksiński index":
-            script.src = "/libs/cursor/cursorTrompette.js";
+            script.src = "js/libs/cursor/cursorTrompette.js";
             break;
     
         default:
