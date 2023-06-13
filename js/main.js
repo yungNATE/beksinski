@@ -10,6 +10,7 @@ const mainJS = () => {
         
         case "Beksiński choice":
             script.src = "js/libs/cursor/cursorChoice.js";
+            break;
     
         default:
             script.src = "js/libs/cursor/cursor.js";
