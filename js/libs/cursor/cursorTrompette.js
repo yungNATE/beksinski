@@ -35,7 +35,7 @@ const cursorMain = () => {
         const maxOpacity = 1;
         
         // Calcul de l'opacité en fonction de la distance
-        const opacity = 1 - (distance / maxDistance);
+        const opacity = distance;
         const clampedOpacity = Math.max(minOpacity, Math.min(maxOpacity, opacity));
 
         console.log(opacity);
