@@ -16,6 +16,37 @@ const cursorMain = () => {
     // JS
     const cursor = document.querySelector('.cursor');
 
+    window.addEventListener('mousemove', e => {
+        // TODO : Transformer ça en objet 'virtualLink'
+        const offsetY = 1.5; // offset permettant d'obtenir le centre du son (== son max) au niveau de la trompette
+        var y = e.clientY / (window.innerHeight * offsetY); 
+        var x = e.clientX / window.innerWidth; 
+        vol = -(Math.pow(y-0.5, 2) + Math.pow(x-0.5,2))*4 + 1;
+        sound.volume(vol); 
+
+
+        let distance = vol
+        
+        // Distance maximale entre le curseur et la zone (à partir de laquelle l'opacité est à 1)
+        const maxDistance = 500;
+        
+        // Opacité minimale (valeur de fond transparent)
+        const minOpacity = 0;
+        
+        // Opacité maximale (valeur de fond blanc)
+        const maxOpacity = 1;
+        
+        // Calcul de l'opacité en fonction de la distance
+        const opacity = 1 - (distance / maxDistance);
+        const clampedOpacity = Math.max(minOpacity, Math.min(maxOpacity, opacity));
+
+        console.log(opacity);
+        
+        // Modification de l'opacité du fond du curseur
+        cursor.style.backgroundColor = `rgba(255, 255, 255, ${clampedOpacity})`;
+
+    });
+
     
     document.addEventListener('mousemove', removeHiddenOnStartupClass);
     function removeHiddenOnStartupClass(){
@@ -47,14 +78,7 @@ const cursorMain = () => {
     }
 
 
-    cursorZone.addEventListener('mousedown', handleMouseDown);
-    // myDiv.addEventListener('mouseup', handleMouseUp);
-
   
-
-
-
-
 
     document.addEventListener('click', () => {
         cursor.classList.add("expand");

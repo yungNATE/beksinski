@@ -24,28 +24,6 @@ const trumpetJS = () => {
         var x = e.clientX / window.innerWidth; 
         vol = -(Math.pow(y-0.5, 2) + Math.pow(x-0.5,2))*4 + 1;
         sound.volume(vol); 
-
-
-        let distance = vol
-        
-        // Distance maximale entre le curseur et la zone (à partir de laquelle l'opacité est à 1)
-        const maxDistance = 500;
-        
-        // Opacité minimale (valeur de fond transparent)
-        const minOpacity = 0;
-        
-        // Opacité maximale (valeur de fond blanc)
-        const maxOpacity = 1;
-        
-        // Calcul de l'opacité en fonction de la distance
-        const opacity = 1 - (distance / maxDistance);
-        const clampedOpacity = Math.max(minOpacity, Math.min(maxOpacity, opacity));
-
-        console.log(clampedOpacity);
-        
-        // Modification de l'opacité du fond du curseur
-        cursor.style.backgroundColor = `rgba(255, 255, 255, ${clampedOpacity})`;
-
     });
     sound.play();
 
