@@ -11,7 +11,7 @@ const trumpetJS = () => {
 
     // Gestion du son
     var sound = new Howl({
-        src: ['media/audio/DarkSouls3-Premonition.mp3'],
+        src: ['media/audio/media/audio/DarkSouls3-Premonition.mp3'],
         loop: true,
     });
     window.addEventListener('mousemove', e => {
