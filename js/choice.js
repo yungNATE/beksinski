@@ -1,3 +1,7 @@
+var script = document.createElement('script');
+script.src = "./js/libs/howler/howler.min.js";
+document.head.appendChild(script);
+
 const virtualLink = {
     //* Attributs
     self: null,
@@ -73,5 +77,14 @@ const choiceJS = () => {
     virtualLink2.updateDistanceListener();
     virtualLink2.checkForClickedListener();
 
+    var musiqueDeFond = new Howl({
+        src: ['media/audio/AmbientSound1.mp3'],
+        loop: true, // Permet de répéter la musique en boucle
+        volume: 0.2 // Réglez le volume de la musique selon vos préférences
+    });
+
+    musiqueDeFond.seek(10);
+    musiqueDeFond.play();
+
 }
-window.addEventListener('DOMContentLoaded', choiceJS);
+window.addEventListener('load', choiceJS);
