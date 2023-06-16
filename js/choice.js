@@ -65,14 +65,22 @@ const virtualLink = {
   }
     }
 };
+
+
+
+
 const choiceJS = () => {
+    const cursor = document.querySelector('.cursor');
+
+    
+
     
     // définition de la position du lien 1
     const virtualLink1 = Object.create(virtualLink);
     virtualLink1.constructor(0.70, 0.75, "hot");
     virtualLink1.updateDistance();
     virtualLink1.checkEnContinuDuClic();
-
+    
     // définition de la position du lien 2
     const virtualLink2 = Object.create(virtualLink);
     virtualLink2.constructor(1.2, 1.3, "cold");

@@ -3,7 +3,7 @@ const cursorMain = () => {
     document.querySelector('head')
     .insertAdjacentHTML(
         'beforeend',
-        '<link rel="stylesheet" href="beksinski_final/js/libs/cursor/cursor.css" />'
+        '<link rel="stylesheet" href="js/libs/cursor/cursor.css" />'
         );
 
     // ajout du HTML
