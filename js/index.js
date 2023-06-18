@@ -53,6 +53,6 @@ const trumpetJS = () => {
             
     });
     
-    alert("Essaie de cliquer sur l'écran une fois cette fenêtre modale fermée...")
+    alert("Avant de commencer : \n\n- Assurez-vous d'avoir le son activé (avec un casque ou des écouteurs de préférence) \n- Assurez-vous d'être dans un environnement calme et d'être en plein écran (F11)")
 }
 window.addEventListener('load', trumpetJS);

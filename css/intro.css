@@ -163,7 +163,7 @@ body{
     transform: translateY(0) rotateX(0);
 }
 .content > .btn-flip:hover:before {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(50%) rotateX(90deg);
 }
 .content > .btn-flip:after {

@@ -20,3 +20,7 @@ const mainJS = () => {
     document.head.appendChild(script);
 }
 window.addEventListener('DOMContentLoaded', mainJS);
+
+
+
+// TODO IMPORTANT : ETIRER TOUTES LES IMAGES EN 16/9 AVEC DALLE et ne pas oublier l'image de cold.html

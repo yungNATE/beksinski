@@ -36,24 +36,25 @@ body{
 .content {
     height: 100%;
     display: flex;
+    justify-content: flex-start;
+}
+.content > .projet {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 350px;
+    justify-content: left;
+}
+
+.content > *:nth-child(2){
+    flex: 2;
+
+    display: flex;
+    justify-content: center;
     flex-direction: column;
-    justify-content: space-between;
-}
-.content > *:nth-child(even){
-    align-self: flex-end;
+    gap: 30px;
 }
 
-/* HALO */
-/*#halo{
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: url(https://rare-gallery.com/uploads/posts/4560901-zdzisaw-beksiski-artwork-dark.jpg) top center / cover;
-    filter: brightness(25%);
-
-    mask: url("../media/img/masks/mask-09.svg") no-repeat;
-    -webkit-mask: url("../media/img/masks/mask-09.svg") no-repeat;
-}*/
 
 /* Animation on load */
 .content > *{
@@ -85,28 +86,25 @@ body{
     0%{ opacity: 0;
         transform: translateY(50px); }
     100%{   opacity: 1;
-            transform: translateX(0); }
+            transform: translateX(0); } 
 }
 
 
 /* LOGO SIGNATURE BEKSINSKI */
-.content > #littlelogo {
-    position: fixed;
-    top: -5px; /* Ajustez cette valeur selon votre besoin */
-    left: 50px; /* Ajustez cette valeur selon votre besoin */
+.content #logo {
     user-select: none;
     pointer-events: none;
+    margin-left: -20px;
 }
-.content > #littlelogo .img {
+.content #logo .img {
     filter: invert(100%);
-    width: 300px; /* Largeur du logo */
-    height: 130px; /* Hauteur du logo */
+    width: 300px;
 }
-.content > #littlelogo .alt-logo {
+.content #logo .alt-logo {
     display: block;
     position: absolute;
     left: 0;
-    top: 100;
+    top: 0;
 
     z-index: -1;
     pointer-events: none;
@@ -122,33 +120,8 @@ body{
     z-index: 0;
 }
 
-
-.rainbow {
-    /* Sous chrome explodeOnHover + rainbow incompatible */
-    background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: rainbow_animation 6s ease-in-out infinite;
-    background-size: 400% 100%;
-}
-@keyframes rainbow_animation {
-    0%,100% { background-position: 0 0; }
-    50% { background-position: 100% 0; }
-}
-
-.explodeOnHover {
-    display: flex;
-    pointer-events: none;
-}
-.explodeOnHover .letter {
-    display: block;
-    transition: transform 0.5s;
-}
-
-
 /* BOUTON DEMARRER */
-.content > .btn-flip {
+.btn-flip {
     --lineheight: 60px;
     opacity: 1;
     outline: 0;
@@ -164,15 +137,15 @@ body{
     width: fit-content;
     align-self: center;
 }
-.content > .btn-flip:hover:after {
+.btn-flip:hover:after {
     opacity: 1;
     transform: translateY(0) rotateX(0);
 }
-.content > .btn-flip:hover:before {
+.btn-flip:hover:before {
     opacity: 0;
     transform: translateY(50%) rotateX(90deg);
 }
-.content > .btn-flip:after {
+.btn-flip:after {
     top: 0;
     left: 0;
     opacity: 0;
@@ -185,7 +158,7 @@ body{
     content: attr(data-back);
     transform: translateY(-50%) rotateX(90deg);
 }
-.content > .btn-flip:before {
+.btn-flip:before {
     top: 0;
     left: 0;
     opacity: 1;
@@ -198,16 +171,6 @@ body{
     background: #222020;
     content: attr(data-front);
     transform: translateY(0) rotateX(0);
-}
-
-.content > .projet {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 350px;
-    justify-content: left;
-    transform: translateY(20%);
-
 }
 
 h2.title {

@@ -53,10 +53,6 @@ const trumpetJS = () => {
             
     });
     
-    alert("Essaie de cliquer sur l'écran une fois cette fenêtre modale fermée...")
-
-
-
 }
 window.addEventListener('load', trumpetJS);
 

@@ -29,15 +29,23 @@ threeScript.onload = () => {
 const threeSixtyMain = () => {
 
     // Panolens img 360°
-    const panorama = new PANOLENS.ImagePanorama( 'media/img/dallETest.png' );
+    const panorama = new PANOLENS.ImagePanorama( 'media/img/dallETest.png' ); // TODO : refaire l'image 360° + propre
     const viewer = new PANOLENS.Viewer( { 
         cameraFov: 120, 
         horizontalView: true, 
     } );
     viewer.add( panorama );
 
+    // TODO :
+    /*
+        OnZoom => zoomLevel ++
+        zoomLevel = saturation ++
+        if zoomLevel >= zoomMax => switchToFragmentCalin
+    */
+
+    // Musique de fond
     var musiqueDeFond = new Howl({
-        src: ['media/audio/Leaf.mp3'],
+        src: ['media/audio/Leaf.mp3'], // TODO : à remplacer 
         loop: true, // Permet de répéter la musique en boucle
         volume: 0.2 // Réglez le volume de la musique selon vos préférences
     });

@@ -9,13 +9,19 @@ const virtualLink = {
     offsetY: 0,
     proximiteAvecLeCurseur: 0,
     linkToFragment: '',
+    sound: '',
   
     //* Méthodes
-    constructor: function(offsetX, offsetY, linkToFragment) {
+    constructor: function(offsetX, offsetY, linkToFragment, sound) {
+        this.self = this;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
         this.linkToFragment = linkToFragment;
-        this.self = this;
+
+        this.sound = sound;
+        sound.volume(0);
+        sound.play();
+        
 
         this.checkForClickedListener();
     },
@@ -24,14 +30,14 @@ const virtualLink = {
     checkForClicked: function() {
         if(this.proximiteAvecLeCurseur < 0.8) return
             
-
         // Switch to fragment
         switch (this.linkToFragment) {
             case "hot.html":
-                // navigate to hot fragment
+                // TODO : EMBRASER
                 break;
 
             case "cold.html":
+                // TODO : GLACER
                 break;
 
             default:
@@ -52,8 +58,14 @@ const virtualLink = {
       
       this.proximiteAvecLeCurseur = pos1; // Met à jour la valeur de proximiteAvecLeCurseur
     },
+
+    updateSound: function(e){
+        this.sound.volume(this.proximiteAvecLeCurseur < 0.6 ? 0 : this.proximiteAvecLeCurseur);
+    },
+
     updateDistanceListener: function() {
-      document.addEventListener('mousemove', this.updateDistance.bind(this));
+        document.addEventListener('mousemove', this.updateDistance.bind(this));
+        document.addEventListener('mousemove', this.updateSound.bind(this));
     },
     removeCheckEnContinuDuCliclistener: function() {
       document.removeEventListener('click', this.virtualLinkClicked);
@@ -61,27 +73,41 @@ const virtualLink = {
 };
 
 const choiceJS = () => {
-    const cursor = document.querySelector('.cursor');
-
     
-
     
     // définition de la position du lien 1
     const virtualLink1 = Object.create(virtualLink);
-    virtualLink1.constructor(0.70, 0.75, "hot");
+    virtualLink1.constructor(
+        0.70, 
+        0.75, 
+        "hot", 
+        new Howl({
+            src: ['media/audio/Fire.mp3'],
+            loop: true,
+            volume: 0
+    }));
     virtualLink1.updateDistanceListener();
     virtualLink1.checkForClickedListener();
 
     // définition de la position du lien 2
     const virtualLink2 = Object.create(virtualLink);
-    virtualLink2.constructor(1.2, 1.3, "cold");
+    virtualLink2.constructor(
+        1.2, 
+        1.3, 
+        "cold",
+        new Howl({
+            src: ['media/audio/Wind.mp3'],
+            loop: true,
+            volume: 0
+    }));
     virtualLink2.updateDistanceListener();
     virtualLink2.checkForClickedListener();
 
+    // Musique de fond
     var musiqueDeFond = new Howl({
         src: ['media/audio/AmbientSound1.mp3'],
-        loop: true, // Permet de répéter la musique en boucle
-        volume: 0.2 // Réglez le volume de la musique selon vos préférences
+        loop: true,
+        volume: 0.2
     });
 
     musiqueDeFond.seek(10);

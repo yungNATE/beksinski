@@ -45,7 +45,8 @@ body,
 
 .cursor.expand {
     animation: cursorAnim3 .5s forwards;
-    outline-color: #ffbb00;
+    /* outline-color: #ffbb00; */
+    outline-color: white;
     background-color: transparent;
 }
 
