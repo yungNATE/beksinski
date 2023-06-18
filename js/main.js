@@ -8,8 +8,9 @@ const mainJS = () => {
             script.src = "js/libs/cursor/cursorTrompette.js";
             break;
         
-        case "Beksiński choice":
+        case "BeksinskiChoice":
             script.src = "js/libs/cursor/cursorChoice.js";
+            break;
     
         default:
             script.src = "js/libs/cursor/cursor.js";

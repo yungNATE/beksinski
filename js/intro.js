@@ -1,3 +1,7 @@
+var script = document.createElement('script');
+script.src = "./js/libs/howler/howler.min.js";
+document.head.appendChild(script);
+
 const introMain = () => {
 
     //* Effet de halo
@@ -49,5 +53,14 @@ const introMain = () => {
         });
     });
 
+    var musiqueDeFond = new Howl({
+        src: ['media/audio/AmbientSound1.mp3'],
+        loop: true, // Permet de répéter la musique en boucle
+        volume: 0.4 // Réglez le volume de la musique selon vos préférences
+      });
+    
+    musiqueDeFond.play();
+
 }
 addEventListener('load', introMain);
+

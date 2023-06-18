@@ -12,7 +12,20 @@ let panolensScript = document.createElement('script');
 panolensScript.src = "js/libs/panolens/panolens.js";
 threeScript.onload =()=> { document.head.appendChild(panolensScript); }
 
-//* Main
+var script = document.createElement('script');
+script.src = "./js/libs/howler/howler.min.js";
+document.head.appendChild(script);
+
+threeScript.onload = () => {
+
+    // Panolens.js
+    var panolensScript = document.createElement('script');
+    panolensScript.src = "js/libs/panolens/panolens.js";
+    document.head.appendChild(panolensScript);
+
+}
+
+
 const threeSixtyMain = () => {
 
     // Panolens img 360°
@@ -23,12 +36,14 @@ const threeSixtyMain = () => {
     } );
     viewer.add( panorama );
 
-    // Son
-    let Ambientsound = new Howl({
-        src: ['media/audio/AmbientSound1.mp3'],
-        loop: true,
+    var musiqueDeFond = new Howl({
+        src: ['media/audio/Leaf.mp3'],
+        loop: true, // Permet de répéter la musique en boucle
+        volume: 0.2 // Réglez le volume de la musique selon vos préférences
     });
-    Ambientsound.play()
+
+    musiqueDeFond.seek(20);
+    musiqueDeFond.play();
 
 }
 addEventListener('load', threeSixtyMain);
