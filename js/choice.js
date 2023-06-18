@@ -52,6 +52,7 @@ const virtualLink = {
       document.addEventListener('mousemove', this.updateDistance.bind(this));
     },
 };
+
 const choiceJS = () => {
     
     // définition de la position du lien 1
