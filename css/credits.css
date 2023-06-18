@@ -92,15 +92,15 @@ body{
 /* LOGO SIGNATURE BEKSINSKI */
 .content > #littlelogo {
     position: fixed;
-    top: -70px; /* Ajustez cette valeur selon votre besoin */
-    left: 10px; /* Ajustez cette valeur selon votre besoin */
+    top: -5px; /* Ajustez cette valeur selon votre besoin */
+    left: 50px; /* Ajustez cette valeur selon votre besoin */
     user-select: none;
     pointer-events: none;
 }
 .content > #littlelogo .img {
     filter: invert(100%);
     width: 300px; /* Largeur du logo */
-    height: 240px; /* Hauteur du logo */
+    height: 130px; /* Hauteur du logo */
 }
 .content > #littlelogo .alt-logo {
     display: block;
@@ -204,7 +204,7 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 400px;
+    max-width: 350px;
     justify-content: left;
     transform: translateY(20%);
 
@@ -215,7 +215,7 @@ h2.title {
 }
 
 p.text {
-    font-size: 17px;
+    font-size: 16px;
 }
 
 @media screen and (max-width: 768px) {
