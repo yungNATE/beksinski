@@ -1,0 +1,232 @@
+@import url("style.css");
+
+/* Adding fonts */
+@font-face {
+    font-family: "Syne";
+    src: url("fonts/Syne/static/Syne-Bold.ttf");
+}
+@font-face {
+    font-family: "FuturaRenner";
+    src: url("fonts/FuturaRenner/fonts/FuturaRenner-Regular.woff2");
+}
+
+/* GENERIQUE */
+html, body{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+body{
+    --bodyPaddingBlock: 100px;
+    padding-block: var(--bodyPaddingBlock);
+    height: calc(100vh - calc(var(--bodyPaddingBlock) * 2));
+
+    --bodyPaddingInline: 100px;
+    padding-inline: var(--bodyPaddingInline);
+    width: calc(100vw - calc(var(--bodyPaddingInline) * 2));
+
+    color: white;
+    font-size: 2rem;
+    padding-block: 100px;
+
+    font-family: "Syne";
+
+    position: relative;
+}
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.content > *:nth-child(even){
+    align-self: flex-end;
+}
+
+/* HALO */
+/*#halo{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: url(https://rare-gallery.com/uploads/posts/4560901-zdzisaw-beksiski-artwork-dark.jpg) top center / cover;
+    filter: brightness(25%);
+
+    mask: url("../media/img/masks/mask-09.svg") no-repeat;
+    -webkit-mask: url("../media/img/masks/mask-09.svg") no-repeat;
+}*/
+
+/* Animation on load */
+.content > *{
+    animation-duration: 1s;
+}
+.content > *:nth-child(1){
+    animation: revealLeft 1s;
+}
+.content > *:nth-child(2){
+    animation: revealRight 3s;
+}
+.content > *:nth-child(3){
+    animation: revealBottom 5s;
+}
+
+@keyframes revealLeft {
+    0%{ opacity: 0;
+        transform: translateX(-50px); }
+    100%{   opacity: 1;
+            transform: translateX(0); }
+}
+@keyframes revealRight {
+    0%{ opacity: 0;
+        transform: translateX(50px); }
+    100%{   opacity: 1;
+            transform: translateX(0); }
+}
+@keyframes revealBottom {
+    0%{ opacity: 0;
+        transform: translateY(50px); }
+    100%{   opacity: 1;
+            transform: translateX(0); }
+}
+
+
+/* LOGO SIGNATURE BEKSINSKI */
+.content > #littlelogo {
+    position: fixed;
+    top: -5px; /* Ajustez cette valeur selon votre besoin */
+    left: 50px; /* Ajustez cette valeur selon votre besoin */
+    user-select: none;
+    pointer-events: none;
+}
+.content > #littlelogo .img {
+    filter: invert(100%);
+    width: 300px; /* Largeur du logo */
+    height: 130px; /* Hauteur du logo */
+}
+.content > #littlelogo .alt-logo {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100;
+
+    z-index: -1;
+    pointer-events: none;
+    
+    color: transparent;
+    user-select: none;
+}
+
+/* Texte intro */
+#text {
+    display: flex;
+    line-height: 3rem;
+    z-index: 0;
+}
+
+
+.rainbow {
+    /* Sous chrome explodeOnHover + rainbow incompatible */
+    background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 6s ease-in-out infinite;
+    background-size: 400% 100%;
+}
+@keyframes rainbow_animation {
+    0%,100% { background-position: 0 0; }
+    50% { background-position: 100% 0; }
+}
+
+.explodeOnHover {
+    display: flex;
+    pointer-events: none;
+}
+.explodeOnHover .letter {
+    display: block;
+    transition: transform 0.5s;
+}
+
+
+/* BOUTON DEMARRER */
+.content > .btn-flip {
+    --lineheight: 60px;
+    opacity: 1;
+    outline: 0;
+    color: #fff;
+    line-height: var(--lineheight);
+    position: relative;
+    text-align: center;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.3rem;
+
+    width: fit-content;
+    align-self: center;
+}
+.content > .btn-flip:hover:after {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+}
+.content > .btn-flip:hover:before {
+    opacity: 0;
+    transform: translateY(50%) rotateX(90deg);
+}
+.content > .btn-flip:after {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    color: #000000;
+    display: block;
+    transition: 0.5s;
+    position: absolute;
+    background: #ffffff;
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+}
+.content > .btn-flip:before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: #ffffff;
+    display: block;
+    padding: 0 30px;
+    line-height: var(--lineheight);
+    transition: 0.5s;
+    position: relative;
+    background: #222020;
+    content: attr(data-front);
+    transform: translateY(0) rotateX(0);
+}
+
+.content > .projet {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 350px;
+    justify-content: left;
+    transform: translateY(20%);
+
+}
+
+h2.title {
+    font-size: 25px;
+}
+
+p.text {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .content > .container {
+      flex-direction: column;
+    }
+}
+
+
+
+
+/* Gallery*/
+
+
