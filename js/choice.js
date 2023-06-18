@@ -59,6 +59,7 @@ const virtualLink = {
       document.removeEventListener('click', this.virtualLinkClicked);
     },
 };
+
 const choiceJS = () => {
     const cursor = document.querySelector('.cursor');
 

@@ -1,8 +1,16 @@
-// Chargement des libs
+//* Chargement des libs
+// Howler.js
+let howlerScript = document.createElement('script');
+howlerScript.src = "js/libs/howler/howler.min.js";
+document.head.appendChild(howlerScript);
 // Three.js 105
-var threeScript = document.createElement('script');
+let threeScript = document.createElement('script');
 threeScript.src = "js/libs/three/105/three.min.js";
 document.head.appendChild(threeScript);
+// Panolens.js
+let panolensScript = document.createElement('script');
+panolensScript.src = "js/libs/panolens/panolens.js";
+threeScript.onload =()=> { document.head.appendChild(panolensScript); }
 
 var script = document.createElement('script');
 script.src = "./js/libs/howler/howler.min.js";
@@ -20,10 +28,12 @@ threeScript.onload = () => {
 
 const threeSixtyMain = () => {
 
-    // const panorama = new PANOLENS.ImageLittlePlanet( '../../beksinski/media/img/fieldTest.jpg' );
-    // const panorama = new PANOLENS.ImagePanorama( 'media/img/hotField.jpg' );
+    // Panolens img 360°
     const panorama = new PANOLENS.ImagePanorama( 'media/img/dallETest.png' );
-    const viewer = new PANOLENS.Viewer();
+    const viewer = new PANOLENS.Viewer( { 
+        cameraFov: 120, 
+        horizontalView: true, 
+    } );
     viewer.add( panorama );
 
     var musiqueDeFond = new Howl({
