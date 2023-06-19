@@ -1,6 +1,3 @@
-// TODO : Colorer le curseur en orange quand il se rapproche du feu et en bleu pour l'autre coté. DONE
-// => Peut-être fait directement dans choice.js/virtualLink en ajoutant une méthode -> Pas réussi fait avec des div ça marche bien
-
 const cursorMain = () => {
     // ajout du CSS
     document.querySelector('head')
@@ -37,21 +34,6 @@ const cursorMain = () => {
     const hotDiv = document.querySelector('.hotDiv');
     var rect = coldDiv.getBoundingClientRect();
     var rect2 = hotDiv.getBoundingClientRect();
-
-    document.addEventListener('mousemove', function(event) {
-        // FROID
-      if(event.pageY >= rect.top && event.pageY <= rect.bottom && event.pageX >= rect.left && event.pageX <= rect.right){
-        cursor.style.background = "#1d3161";
-      }
-      // CHAUD
-      if(event.pageY >= rect2.top && event.pageY <= rect2.bottom && event.pageX >= rect2.left && event.pageX <= rect2.right){
-        cursor.style.background = "#37254a";
-      }
-
-
-    });
-
-    
 
 
     document.addEventListener('click', () => {
