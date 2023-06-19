@@ -103,7 +103,7 @@ const coldMain = async () => {
     document.cookie = `previousColdPage=${window.frames.top.document.referrer.split("/").pop().split(".")[0]}`; 
 
     // Canvas affichage
-    const url = "media/img/coldCityExtended.jpg";
+    const url = "media/img/coldCity.jpg";
     const canvas = await createCanvasFromImage(url);
     
     document.body.appendChild(canvas);

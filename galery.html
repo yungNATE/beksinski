@@ -7,31 +7,64 @@
     <link rel="stylesheet" href="css/galery.css">
     
     <script  src="js/main.js"></script>
-    <script  src="js/credits.js"></script>
-    
+    <!-- <script  src="js/credits.js"></script> -->
+
+    <script>
+
+      function getPics() {
+        const imgs = document.querySelectorAll('.gallery img');
+        const fullPage = document.querySelector('#fullpage');
+
+        imgs.forEach(img => {
+          img.addEventListener('click', function() {
+            fullPage.style.backgroundImage = 'url(' + img.src + ')';
+            fullPage.style.display = 'block';
+          });
+        });
+      }
+
+    </script>
+
+    <style>
+
+      #fullpage {
+        display: none;
+        position: absolute;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-size: contain;
+        background-repeat: no-repeat no-repeat;
+        background-position: center center;
+        background-color: black;
+      }
+
+    </style>
+
+
     <title>Beksiński</title>
 </head>
-<body id="intro">
+<body id="gallery" onload="getPics()">
     <div class="content">
       <a href="credits.html">Close</a>
 
-        <div class="grid-container">
+        <div class="gallery grid-container">
           <img src="media/img/trumpet.jpg">
+          <img src="media/imgGallery/chaudFroid.jpg">
           <img src="media/imgGallery/cathedral.jpg">
           <img src="media/imgGallery/car.jpg">
+          <img src="media/imgGallery/voyager.jpg">
           <img src="media/imgGallery/hot.jpg">
-          <img src="media/imgGallery/cemetery.jpg">
-          <img src="media/imgGallery/chateau.png">
+          <img src="media/imgGallery/coldCity.jpg">
           <img src="media/imgGallery/visage.jpg">
-          <img src="media/imgGallery/coldCity.jpg">
-          <img src="media/imgGallery/chaudFroid.jpg">
+          <img src="media/imgGallery/cemetery.jpg">
           <img src="media/imgGallery/hug.jpg">
-          <img src="media/imgGallery/coldCity.jpg">
-          <img src="media/imgGallery/chaudFroid.jpg">
+          <img src="media/imgGallery/hug-wall.jpg">
         </div>
-
-
     </div>
+    <div id="fullpage" onclick="this.style.display='none';"></div>
 
 
 

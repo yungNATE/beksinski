@@ -174,7 +174,14 @@ body{
 }
 
 h2.title {
+    margin-top: 50px;
     font-size: 25px;
+    width: 100%;
+}
+
+ul{
+    list-style: square;
+    margin-top: 0;
 }
 
 p.text {

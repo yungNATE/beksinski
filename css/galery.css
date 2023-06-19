@@ -46,8 +46,8 @@ body{
 
 
 a {
-    text-decoration: none;
-    text-align: center;
+  text-decoration: none;
+  text-align: center;
   background: none;
   border: 0;
   box-sizing: border-box;
@@ -127,8 +127,9 @@ a:hover::after {
     text-align: center;
 }
   
-.grid-item img {
+img {
     width: 200px;
     height: 200px;
+    object-fit: cover;
 }
   
