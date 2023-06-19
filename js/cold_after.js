@@ -109,5 +109,12 @@ let coldAfterMain = function() {
     zoomedImg.style.transformOrigin = '60% 35%';
     zoomedImg.style.width = '100%';
     addEventListener('wheel', zoom);
+
+    var musiqueDeFond = new Howl({
+        src: ['media/audio/AmbientSound1.mp3'],
+        loop: true,
+        volume: 0.2
+    });
+    musiqueDeFond.play();
 }
 window.addEventListener('load', coldAfterMain);
