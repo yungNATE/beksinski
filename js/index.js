@@ -6,7 +6,7 @@ document.head.appendChild(script);
 // Variables globales
 var vol = 0; // volume du son
 const cursor = document.querySelector('.cursor');
-
+window.limitClick  = 0.98; // limite à partir de laquelle le click est autorisé
 
 // Main
 const trumpetJS = () => {
@@ -32,7 +32,7 @@ const trumpetJS = () => {
     window.addEventListener('click', () => {
         // TODO : empecher le click si l'audio context n'a pas encore été créé 
         // TODO : (trouver une solution propre ; à défaut https://stackoverflow.com/questions/26122115/detect-any-user-interaction)
-        if(vol < 0.98) return;
+        if(vol < window.limitClick) return;
         
         // fade out
         let fadeDuration = 1; //en secondes

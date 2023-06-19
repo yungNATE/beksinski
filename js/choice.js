@@ -28,23 +28,22 @@ const virtualLink = {
   
     // Click functions
     checkForClicked: function() {
-        if(this.proximiteAvecLeCurseur < 0.8) return
+        if(this.proximiteAvecLeCurseur < 0.95) return
             
         // Switch to fragment
         switch (this.linkToFragment) {
-            case "hot.html":
+            case "hot":
                 // TODO : EMBRASER
                 break;
 
-            case "cold.html":
+            case "cold":
                 // TODO : GLACER
                 break;
 
-            default:
-                break;
+            default: break;
         }
         
-        window.location.href = this.linkToFragment;
+        window.location.href = this.linkToFragment + ".html";
     },
     checkForClickedListener: function() {
         document.addEventListener('click', this.checkForClicked.bind(this));
@@ -54,18 +53,32 @@ const virtualLink = {
     updateDistance: function(e){
       var y = e.clientY / (window.innerHeight * this.offsetY);
       var x = e.clientX / (window.innerWidth * this.offsetX);
-      var pos1 = -(Math.pow(y - 0.5, 2) + Math.pow(x - 0.5, 2)) * 4 + 1;
-      
-      this.proximiteAvecLeCurseur = pos1; // Met à jour la valeur de proximiteAvecLeCurseur
-    },
+      this.proximiteAvecLeCurseur = -(Math.pow(y - 0.5, 2) + Math.pow(x - 0.5, 2)) * 4 + 1;
 
+    },
     updateSound: function(e){
         this.sound.volume(this.proximiteAvecLeCurseur < 0.6 ? 0 : this.proximiteAvecLeCurseur);
+    },
+    updateCursorProps: function(e){
+        switch (this.linkToFragment) {
+            case "hot": 
+                window.hotIntensity = Math.max(0, Math.min(255, this.proximiteAvecLeCurseur * 255)); 
+                window.hotProximity = this.proximiteAvecLeCurseur;
+                break;
+            case "cold": 
+                window.coldIntensity = Math.max(0, Math.min(255, this.proximiteAvecLeCurseur * 255)); 
+                window.coldProximity = this.proximiteAvecLeCurseur;
+                break;
+
+            default: break;
+        }
+
     },
 
     updateDistanceListener: function() {
         document.addEventListener('mousemove', this.updateDistance.bind(this));
         document.addEventListener('mousemove', this.updateSound.bind(this));
+        document.addEventListener('mousemove', this.updateCursorProps.bind(this));
     },
     removeCheckEnContinuDuCliclistener: function() {
       document.removeEventListener('click', this.virtualLinkClicked);
