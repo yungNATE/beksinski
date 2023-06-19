@@ -1,4 +1,8 @@
 //* POC : Zoom / Dézoom
+var script = document.createElement('script');
+script.src = "./js/libs/howler/howler.min.js";
+document.head.appendChild(script);
+
 var zoomLevel = 1
 const ZOOMLVLMIN = 1
 const ZOOMLVLMAX = 95 // valeur arbitraire qui marche
@@ -62,5 +66,12 @@ let coldAfterMain = function() {
     zoomedImg.style.transformOrigin = '70% 35%';
     zoomedImg.style.width = '100%';
     addEventListener('wheel', zoom);
+
+    var musiqueDeFond = new Howl({
+        src: ['media/audio/AmbientSound1.mp3'],
+        loop: true,
+        volume: 0.2
+    });
+    musiqueDeFond.play();
 }
 window.addEventListener('load', coldAfterMain);

@@ -95,7 +95,7 @@ const choiceJS = () => {
         0.75, 
         "hot", 
         new Howl({
-            src: ['media/audio/Fire.mp3'],
+            src: ['media/audio/fire.mp3'],
             loop: true,
             volume: 0
     }));

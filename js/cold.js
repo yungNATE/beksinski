@@ -100,7 +100,7 @@ function shakeImage(image) {
   
 const coldMain = async () => {
     // Canvas affichage
-    const url = "media/img/coldCity.jpg";
+    const url = "media/img/coldCityExtended.jpg";
     const canvas = await createCanvasFromImage(url);
     
     document.body.appendChild(canvas);
@@ -139,8 +139,17 @@ const coldMain = async () => {
         totalClicks++;
     });
 
+    var wind = new Howl({
+      src: ['media/audio/Wind.mp3'],
+      loop: true,
+      volume: 0.8
+    });
+    wind.play()
+
 
 };
 addEventListener("load", coldMain);
+
+
 
   
