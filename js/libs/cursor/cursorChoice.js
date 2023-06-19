@@ -24,12 +24,13 @@ const cursorMain = () => {
         cursor.classList.remove("hiddenOnStartup");
         document.removeEventListener('mousemove', removeHiddenOnStartupClass);
     }
+
     document.addEventListener('mousemove', e => {
         let offsetX = cursor.offsetWidth / 2;
         let offsetY = cursor.offsetHeight / 2;
         cursor.setAttribute("style", "top: "+(e.pageY - offsetX)+"px; left: "+(e.pageX - offsetY)+"px;")
-
-
+        let maxOpacity = window.hotProximity > window.coldProximity ? window.hotProximity : window.coldProximity;
+        cursor.style.backgroundColor = `rgba( ${window.hotIntensity}, 0, ${window.coldIntensity}, ${maxOpacity} )`;
     })
 
     const coldDiv = document.querySelector('.coldDiv');

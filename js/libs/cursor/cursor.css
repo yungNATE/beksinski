@@ -50,6 +50,10 @@ body,
     background-color: transparent;
 }
 
+.cursor.big {
+  transform: scale(1.5);
+}
+
 /*@keyframes cursorAnim {
   from {
       transform: scale(1);
