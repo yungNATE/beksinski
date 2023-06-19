@@ -49,10 +49,10 @@ body{
 .content > *:nth-child(2){
     flex: 2;
 
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
-    flex-direction: column;
-    gap: 30px;
+    /*flex-direction: column;*/
+    /*gap: 30px;*/
 }
 
 
@@ -193,3 +193,20 @@ p.text {
 /* Gallery*/
 
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+  
+.grid-item {
+    text-align: center;
+    width: 100px;
+    height: 100px;
+}
+  
+.grid-item img {
+    width: 100px;
+    height: 100px;
+}
+  
