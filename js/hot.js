@@ -45,7 +45,7 @@ const threeSixtyMain = () => {
 
     // Musique de fond
     var musiqueDeFond = new Howl({
-        src: ['media/audio/Leaf.mp3'], // TODO : à remplacer 
+        src: ['media/audio/sandStorm.mp3'], 
         loop: true, // Permet de répéter la musique en boucle
         volume: 0.2 // Réglez le volume de la musique selon vos préférences
     });

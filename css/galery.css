@@ -1,0 +1,134 @@
+@import url("style.css");
+
+/* Adding fonts */
+@font-face {
+    font-family: "Syne";
+    src: url("fonts/Syne/static/Syne-Bold.ttf");
+}
+@font-face {
+    font-family: "FuturaRenner";
+    src: url("fonts/FuturaRenner/fonts/FuturaRenner-Regular.woff2");
+}
+
+/* GENERIQUE */
+html, body{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+body{
+    --bodyPaddingBlock: 100px;
+    padding-block: var(--bodyPaddingBlock);
+    height: calc(100vh - calc(var(--bodyPaddingBlock) * 2));
+
+    --bodyPaddingInline: 100px;
+    padding-inline: var(--bodyPaddingInline);
+    width: calc(100vw - calc(var(--bodyPaddingInline) * 2));
+
+    color: white;
+    font-size: 2rem;
+    padding-block: 100px;
+
+    font-family: "Syne";
+
+    position: relative;
+}
+.content {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+
+
+/* Animation on load */
+
+
+a {
+    text-decoration: none;
+    text-align: center;
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  color: transparent;
+  cursor: pointer;
+  font-family: "Syne";
+  font-size: 18px;
+  left: 7%;
+  letter-spacing: 1.5px;
+  line-height: 90px;
+  outline: none;
+  overflow: hidden;
+  padding: 10px 0 0;
+  position: absolute;
+  text-transform: uppercase;
+  top: 15%;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease-in;
+  width: 100px;
+}
+
+a::before,
+
+a::after {
+  background-color: white;
+  content: '';
+  display: block;
+  height: 3px;
+  left: 0;
+  position: absolute;
+  transform-origin: center left;
+  transition: all 0.2s ease-in;
+  width: 141.4214px;
+  z-index: -1;
+}
+
+a::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+a::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+a:hover {
+  color: #000000;
+}
+
+a:hover::before,
+a:hover::after {
+  height: 50px;
+  transform: rotate(0deg);
+}
+
+
+
+
+/* Gallery*/
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+
+}
+  
+.grid-item {
+    text-align: center;
+}
+  
+.grid-item img {
+    width: 200px;
+    height: 200px;
+}
+  
