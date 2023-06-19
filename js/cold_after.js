@@ -1,4 +1,8 @@
-//* POC : Zoom / Dézoom
+var script = document.createElement('script');
+script.src = "./js/libs/howler/howler.min.js";
+document.head.appendChild(script);
+
+// Zoom / dézoom
 var zoomLevel = 1
 const ZOOMLVLMIN = 1
 const ZOOMLVLMAX = 95 // valeur arbitraire qui marche
@@ -33,12 +37,55 @@ function zoom(){
     if(hasReachedBoundaries){
         zoomAcceleration = ZOOMACCLBASE
         
-        switchImages(zoomedImg, GRAVECANVASSRC, '75% 70%');
+        switchImages(zoomedImg, GRAVECANVASSRC, '61% 70%');
         
         window.isZooming = !window.isZooming;
+
+        setupVirtualLink();
+
         return;
     }
 
+}
+
+let setupVirtualLink = function() {
+    // définition de la position du lien 1
+    const virtualLink1 = Object.create(virtualLink);
+    
+    // get url from cookie
+    function getCookie(cookieName) {
+        let cookie = {};
+        document.cookie.split(';').forEach(function(el) {
+          let [key,value] = el.split('=');
+          cookie[key.trim()] = value;
+        })
+        return cookie[cookieName];
+    }
+    let pagePrecedente = document.cookie.split("=")[1];
+
+    let virtualLinkLink;
+    switch (pagePrecedente) {
+        case "desperate":
+            virtualLinkLink = "credits";
+            break;
+            
+        default :
+            virtualLinkLink = "desperate";
+            break;
+    }
+
+    virtualLink1.constructor(
+        1.2,
+        0.9,
+        virtualLinkLink,
+        new Howl({
+            src: ['media/audio/Wind.mp3'],
+            loop: true,
+            volume: 0
+        })
+    );
+    virtualLink1.updateDistanceListener();
+    virtualLink1.checkForClickedListener();   
 }
 
 function switchImages(imgElement, newSrc, newTransformOrigin) {
@@ -59,7 +106,7 @@ function clamp(num, min, max) { // retourne un nombre borné. num de dépassera 
 let coldAfterMain = function() {
     // zoom / dezoom
     zoomedImg = document.querySelector('#coldAfter > img');
-    zoomedImg.style.transformOrigin = '70% 35%';
+    zoomedImg.style.transformOrigin = '60% 35%';
     zoomedImg.style.width = '100%';
     addEventListener('wheel', zoom);
 }

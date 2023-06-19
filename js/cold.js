@@ -99,6 +99,9 @@ function shakeImage(image) {
 
   
 const coldMain = async () => {
+    // sauvegarde la page précédente
+    document.cookie = `previousColdPage=${window.frames.top.document.referrer.split("/").pop().split(".")[0]}`; 
+
     // Canvas affichage
     const url = "media/img/coldCity.jpg";
     const canvas = await createCanvasFromImage(url);

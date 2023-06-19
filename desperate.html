@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    
+
+    <script src="js/main.js"></script>
+    <script src="js/desperate.js"></script>
+    
+    <title>Beksiński</title>
+</head>
+<body id="desperate">
+
+    <script id="vertexShader" type="x-shader/x-vertex">
+        varying vec2 vUv;
+        void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+        }
+    </script>
+    <script id="fragmentShader" type="x-shader/x-fragment">
+        varying vec2 vUv;
+        uniform sampler2D texture;
+        uniform sampler2D texture2;
+        uniform sampler2D disp;
+        uniform float time;
+        uniform float random;
+        uniform float dispFactor;
+        uniform float angle1;
+        uniform float angle2;
+        uniform vec4 res;
+        vec2 rotate(vec2 v, float a) {
+            float s = sin(a);
+            float c = cos(a);
+            mat2 m = mat2(c, -s, s, c);
+            return m * v;
+        }
+        
+        void main() {
+            vec2 uv = vUv;
+            vec2 newUV = vec2(uv.x, uv.y);
+            newUV -= 0.5;
+            vec2 rotUV = rotate(newUV, random);
+            rotUV += 0.5;
+            vec4 disp = texture2D(disp, rotUV);
+            // vec4 disp = texture2D(disp, vUv);
+            vec2 dispVec = vec2(disp.r, disp.g);
+            vec2 distortedPosition1 = vec2(uv.x + dispFactor * (disp.g*0.3), uv.y);
+            vec2 distortedPosition2 = vec2(uv.x - (1.0 - dispFactor) * (disp.g*0.3), uv.y);
+            // vec2 uv = 0.5 * gl_FragCoord.xy / (res.xy) ;
+            // vec2 myUV = (uv - vec2(0.5))*res.zw + vec2(0.5);
+            // vec2 distortedPosition1 = myUV + getRotM(angle1) * dispVec * 1.0 * dispFactor;
+            // vec2 distortedPosition2 = myUV + getRotM(angle2) * dispVec * 1.0 * (1.0 - dispFactor);
+            vec4 _texture1 = texture2D(texture, distortedPosition1);
+            vec4 _texture2 = texture2D(texture2, distortedPosition2);
+            gl_FragColor = mix(_texture1, _texture2, dispFactor);
+        }
+    </script>
+</body>
+</html>

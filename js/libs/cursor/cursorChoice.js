@@ -28,12 +28,14 @@ const cursorMain = () => {
         cursor.setAttribute("style", "top: "+(e.pageY - offsetX)+"px; left: "+(e.pageX - offsetY)+"px;")
         let maxOpacity = window.hotProximity > window.coldProximity ? window.hotProximity : window.coldProximity;
         cursor.style.backgroundColor = `rgba( ${window.hotIntensity}, 0, ${window.coldIntensity}, ${maxOpacity} )`;
-    })
+        cursor.style.outlineColor = `rgba( ${window.hotIntensity}, 0, ${window.coldIntensity}, 1 )`;
 
-    const coldDiv = document.querySelector('.coldDiv');
-    const hotDiv = document.querySelector('.hotDiv');
-    var rect = coldDiv.getBoundingClientRect();
-    var rect2 = hotDiv.getBoundingClientRect();
+
+        if( window.coldProximity >= 0.95
+            || window.hotProximity >= 0.95){
+            cursor.classList.add("big");
+        } else { cursor.classList.remove("big"); }
+    })
 
 
     document.addEventListener('click', () => {

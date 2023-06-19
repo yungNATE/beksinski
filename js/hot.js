@@ -52,7 +52,17 @@ const threeSixtyMain = () => {
 
         if( cam.fov <= MINFOV ) {
 
-            window.location.href = "desperate.html";
+            let pagePrecedente = window.frames.top.document.referrer.split("/").pop().split(".")[0];
+
+            switch (pagePrecedente) {
+                case "desperate":
+                    window.location.href = "credits.html";
+                    break;
+                    
+                default :
+                    window.location.href = "desperate.html";
+                    break;
+            }
             window.removeEventListener( 'wheel', checkForMaxZoom);
         }
     }; 

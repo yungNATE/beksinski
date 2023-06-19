@@ -17,9 +17,10 @@ const cursorMain = () => {
     const cursor = document.querySelector('.cursor');
 
     window.addEventListener('mousemove', e => {
-        const offsetY = 1.5; // offset permettant d'obtenir le centre du son (== son max) au niveau de la trompette
+        const offsetY = 1.2; // offset permettant d'obtenir le centre du son (== son max) au niveau de la trompette
+        const offsetX = .9; // offset permettant d'obtenir le centre du son (== son max) au niveau de la trompette
         var y = e.clientY / (window.innerHeight * offsetY); 
-        var x = e.clientX / window.innerWidth; 
+        var x = e.clientX / (window.innerWidth * offsetX); 
         let distance = -(Math.pow(y-0.5, 2) + Math.pow(x-0.5,2))*4 + 1;
 
         // Distance maximale entre le curseur et la zone (à partir de laquelle l'opacité est à 1)
@@ -37,7 +38,8 @@ const cursorMain = () => {
         const opacity = distance;
         const clampedOpacity = Math.max(minOpacity, Math.min(maxOpacity, opacity));         // between 0 and 1
         let threshold = 0.5;
-        const transformedOpacity = cubicBezier(clampedOpacity / maxOpacity, 1, 0, 1, -0.2);  // between 0 and 1 too (but when clampedOpacity > 0.5, transformedOpacity == 0)
+        
+        const transformedOpacity = cubicBezier(clampedOpacity / maxOpacity, .5, .15, 1, .3);  // between 0 and 1 too (but when clampedOpacity > 0.5, transformedOpacity == 0)
 
         // Modification de l'opacité du fond du curseur
         cursor.style.backgroundColor = `rgba(255, 255, 255, ${transformedOpacity})`;
