@@ -8,7 +8,7 @@ var vol = 0; // volume du son
 const cursor = document.querySelector('.cursor');
 
 
-// Main
+// Main 
 const trumpetJS = () => {
 
     // Gestion du son
